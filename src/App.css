@@ -2,3 +2,30 @@
   height: 100px;
   width: 100%;
 }
+.add-cw {
+  animation: add-spin-cw infinite 30s linear;
+  height: 300px;
+}
+
+.add-ccw {
+  animation: add-spin-ccw infinite 30s linear;
+  height: 300px;
+}
+
+@keyframes add-spin-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes add-spin-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
