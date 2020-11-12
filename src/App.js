@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import addButton from "./component/addButton.js";
+import AddButton from "./components/AddButton.js";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <addButton />
+        <AddButton w={(100 / 2).toString() + "%"} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from "react";
-import addIcon from "./assets/coin-ikoni.png";
+import addIcon from "../assets/coin-ikoni.png";
 
-class addButton extends React.Component {
+class AddButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,13 +26,10 @@ class addButton extends React.Component {
             className={this.state.clockwise ? "mittel-cw" : "mittel-ccw"}
             alt="mittel"
           />
-          {this.state.clockwise
-            ? "Turning clockwise"
-            : "Turning counterclockwise"}
         </button>
       </div>
     );
   }
 }
 
-export default addButton;
+export default AddButton;
