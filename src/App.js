@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import TopBar from "./components/TopBar.js";
+import TopBar from "./components/Topbar.js";
 import AddButton from "./components/AddButton.js";
 
 class App extends React.Component {
