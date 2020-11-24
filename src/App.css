@@ -1,7 +1,9 @@
 .topBar {
-  height: 100px;
+  height: 150px;
   width: 100%;
+  text-align: center;
 }
+
 .add-cw {
   animation: add-spin-cw infinite 30s linear;
   height: 300px;
@@ -10,6 +12,12 @@
 .add-ccw {
   animation: add-spin-ccw infinite 30s linear;
   height: 300px;
+}
+
+.listNameButton {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
 }
 
 @keyframes add-spin-cw {
