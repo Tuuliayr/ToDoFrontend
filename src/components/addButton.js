@@ -23,7 +23,7 @@ class AddButton extends React.Component {
           <img
             src={addIcon}
             onClick={this.handleClickEvent}
-            className={this.state.clockwise ? "mittel-cw" : "mittel-ccw"}
+            className={this.state.clockwise ? "add-cw" : "add-ccw"}
             alt="mittel"
           />
         </button>
