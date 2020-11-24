@@ -1,14 +1,31 @@
 import React from "react";
 import "./App.css";
-import TopBar from "./components/Topbar.js";
+import TopBar from "./components/TopBar.js";
 import AddButton from "./components/AddButton.js";
+import axios from "axios";
 
 class App extends React.Component {
+  state = { tasks: [] };
+
+  async componentDidMount() {
+    axios({
+      method: "get",
+      baseURL: "http://localhost:8080/tasks",
+      url: "/",
+    }).then((response) => {
+      this.setState({ tasks: response.data });
+    });
+  }
+
   render() {
+    const li = this.state.tasks.map((task) => (
+      <li>{JSON.stringify(task.name)}</li>
+    ));
     return (
       <div>
         <TopBar />
-        <AddButton w={(100 / 2).toString() + "%"} />
+        <ul>{li}</ul>
+        <AddButton />
       </div>
     );
   }
