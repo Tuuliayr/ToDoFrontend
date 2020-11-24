@@ -3,6 +3,7 @@ import "./App.css";
 import TopBar from "./components/TopBar.js";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
+import ListNameButton from "./components/ListNameButton.js";
 
 class App extends React.Component {
   state = { tasks: [] };
@@ -26,6 +27,7 @@ class App extends React.Component {
         <TopBar />
         <ul>{li}</ul>
         <AddButton />
+        <ListNameButton />
       </div>
     );
   }
