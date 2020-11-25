@@ -1,5 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import addIcon from "../assets/coin-ikoni.png";
+import Button from "./Button.js";
 
 class AddButton extends React.Component {
   constructor(props) {
@@ -16,17 +19,21 @@ class AddButton extends React.Component {
     }));
   }
 
+  propTypes = {
+    onAddNewTask: PropTypes.func.isRequired,
+  };
+
   render() {
     return (
-      <div style={{ display: "inline-block", width: this.props.w }}>
-        <button onClick={this.handleClickEvent}>
+      <div style={{ display: "inline-block" }}>
+        <Button onClick={this.props.onAddNewTask}>
           <img
             src={addIcon}
-            onClick={this.handleClickEvent}
-            className={this.state.clockwise ? "add-cw" : "add-ccw"}
+            // onClick={this.props.onAddNewTask}
+            // className={this.state.clockwise ? "add-cw" : "add-ccw"}
             alt="mittel"
           />
-        </button>
+        </Button>
       </div>
     );
   }

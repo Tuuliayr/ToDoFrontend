@@ -1,0 +1,25 @@
+button.primary {
+  background: rgb(117, 25, 117);
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 12.5rem;
+  padding: 1.25rem 1.125rem;
+
+  color: #f6f5f5;
+  cursor: pointer;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+button.primary:hover {
+  transform: scale(1.1);
+}
+
+button.primary > img {
+  margin-right: 0.125rem;
+}

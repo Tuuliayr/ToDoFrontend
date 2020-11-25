@@ -6,12 +6,10 @@
 
 .add-cw {
   animation: add-spin-cw infinite 30s linear;
-  height: 300px;
 }
 
 .add-ccw {
   animation: add-spin-ccw infinite 30s linear;
-  height: 300px;
 }
 
 .listNameButton {
