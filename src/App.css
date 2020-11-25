@@ -1,10 +1,10 @@
 .topBar {
   height: 150px;
   width: 100%;
-}
-
-.topBar.h1 {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  background-color: #2196f3;
 }
 
 .add-cw {
