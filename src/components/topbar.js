@@ -1,4 +1,5 @@
 import React from "react";
+import ReturnButton from "./ReturnButton.js";
 
 class TopBar extends React.Component {
   constructor(props) {
@@ -8,15 +9,15 @@ class TopBar extends React.Component {
 
   render() {
     return (
-      <div className="topBar">
-        <h1
-          style={{
-            backgroundColor: this.state.background,
-            color: this.state.color,
-          }}
-        >
-          Top Nav Bar
-        </h1>
+      <div
+        className="topBar"
+        style={{
+          backgroundColor: this.state.background,
+          color: this.state.color,
+        }}
+      >
+        <ReturnButton className="return" onReturn={this.handleReturn} />
+        <h1>Top Nav Bar</h1>
       </div>
     );
   }

@@ -10,13 +10,6 @@ class AddButton extends React.Component {
     this.state = {
       clockwise: true,
     };
-    this.handleClickEvent = this.handleClickEvent.bind(this);
-  }
-
-  handleClickEvent() {
-    this.setState((state) => ({
-      clockwise: !state.clockwise,
-    }));
   }
 
   propTypes = {
@@ -27,12 +20,7 @@ class AddButton extends React.Component {
     return (
       <div style={{ display: "inline-block" }}>
         <Button onClick={this.props.onAddNewTask}>
-          <img
-            src={addIcon}
-            // onClick={this.props.onAddNewTask}
-            // className={this.state.clockwise ? "add-cw" : "add-ccw"}
-            alt="mittel"
-          />
+          <img src={addIcon} alt="AddIcon" />
         </Button>
       </div>
     );

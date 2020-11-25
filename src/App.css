@@ -1,6 +1,9 @@
 .topBar {
   height: 150px;
   width: 100%;
+}
+
+.topBar.h1 {
   text-align: center;
 }
 
