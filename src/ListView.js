@@ -18,7 +18,7 @@ class ListView extends React.Component {
     });
   }
 
-  handleCreateTask = () => {
+  handleCreate = () => {
     // this.createTask({ likes: 0, text: "" });
   };
 
@@ -30,7 +30,7 @@ class ListView extends React.Component {
       <div>
         <TopBar />
         <ul>{li}</ul>
-        <AddButton onAddNewTask={this.handleCreateTask} />
+        <AddButton onAddNew={this.handleCreate} />
         <ListNameButton />
       </div>
     );
