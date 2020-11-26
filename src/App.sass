@@ -1,8 +1,10 @@
-$grid__bp-md: 570;
+$grid__bp-md: 64;
 $grid__cols: 12;
+$breakpoint-tablet: 1060px;
+$breakpoint-mobile: 650px;
 
 .container 
-  max-width: $grid__bp-md * 1px;
+  max-width: 64rem;
   margin: 0 auto;
 
   body
@@ -27,3 +29,12 @@ $grid__cols: 12;
   height: 200px;
   border-radius: 25px;
 
+@media (max-width: $breakpoint-tablet)
+  .container
+    body
+      grid-template-columns: repeat(2, 1fr);
+
+@media (max-width: $breakpoint-mobile)
+  .container
+    body
+      grid-template-columns: repeat(1, 1fr);
