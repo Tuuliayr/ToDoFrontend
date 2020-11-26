@@ -14,11 +14,7 @@ class ReturnButton extends React.Component {
     return (
       <div>
         <Button onClick={this.props.onReturn}>
-          <img
-            src={returnIcon}
-            alt="returnIcon"
-            style={{ height: "70px", display: "inline-block" }}
-          />
+          <img src={returnIcon} alt="returnIcon" style={{ height: "70px" }} />
         </Button>
       </div>
     );

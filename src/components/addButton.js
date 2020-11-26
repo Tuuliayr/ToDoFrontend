@@ -8,7 +8,7 @@ class AddButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clockwise: true,
+      fontSize: "3rem",
     };
   }
 
@@ -19,8 +19,11 @@ class AddButton extends React.Component {
   render() {
     return (
       <div style={{ display: "inline-block" }}>
-        <Button onClick={this.props.onAddNewTask}>
-          <img src={addIcon} alt="AddIcon" />
+        <Button
+          onClick={this.props.onAddNewTask}
+          style={{ fontSize: this.state.fontSize }}
+        >
+          {/* <img src={addIcon} alt="AddIcon" /> */}+
         </Button>
       </div>
     );

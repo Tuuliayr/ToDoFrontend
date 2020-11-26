@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.sass";
 import ListView from "./ListView.js";
 
 //    JOTAIN MAHDOLLISIA VIEWEJÄ
