@@ -4,7 +4,7 @@ import ReturnButton from "./ReturnButton.js";
 class TopBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "palevioletred", color: "white" };
+    this.state = { background: "#9B6BB3", color: "white" };
   }
 
   render() {
