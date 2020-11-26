@@ -17,7 +17,14 @@ class ListNameButton extends React.Component {
   render() {
     return (
       <div>
-        <Button style={{ background: this.state.background }}>
+        <Button
+          style={{
+            width: "17rem",
+            height: "10rem",
+            borderRadius: "2.5rem",
+            background: this.state.background,
+          }}
+        >
           {this.props.name}
         </Button>
       </div>
