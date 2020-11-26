@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import addIcon from "../assets/coin-ikoni.png";
+// import addIcon from "../assets/coin-ikoni.png";
 import Button from "./Button.js";
 
 class AddButton extends React.Component {

@@ -11,7 +11,7 @@ class App extends React.Component {
   //state jossa tieto mikä view kyseessä???
   render() {
     return (
-      <div>
+      <div className="container">
         <ListView />
       </div>
     );

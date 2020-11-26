@@ -5,16 +5,16 @@ import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
 
-class ListView extends React.Component {
-  state = { lists: [] };
+class TaskView extends React.Component {
+  state = { tasks: [] };
 
   async componentDidMount() {
     axios({
       method: "get",
-      baseURL: "http://localhost:8080/tasks/lists",
+      baseURL: "http://localhost:8080/tasks",
       url: "/",
     }).then((response) => {
-      this.setState({ lists: response.data });
+      this.setState({ tasks: response.data });
     });
   }
 
@@ -23,19 +23,18 @@ class ListView extends React.Component {
   };
 
   render() {
-    const lists = this.state.lists.map((list) => (
-      <ListNameButton name={list.name} />
+    const li = this.state.tasks.map((task) => (
+      <li>{JSON.stringify(task.name)}</li>
     ));
     return (
       <div>
         <TopBar />
-        <body>
-          {lists}
-          <AddButton className="addButton" onAddNew={this.handleCreate} />
-        </body>
+        <ul>{li}</ul>
+        <AddButton onAddNew={this.handleCreate} />
+        <ListNameButton />
       </div>
     );
   }
 }
 
-export default ListView;
+export default TaskView;

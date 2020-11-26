@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button.js";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import returnIcon from "../assets/back_button.png";
 

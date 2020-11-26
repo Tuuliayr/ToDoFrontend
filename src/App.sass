@@ -1,12 +1,29 @@
+$grid__bp-md: 570;
+$grid__cols: 12;
+
+.container 
+  max-width: $grid__bp-md * 1px;
+  margin: 0 auto;
+
+  body
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+
+
 .topBar
   height: 150px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  background-color: #2196f3;
+  grid-gap: 1 rem;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 1rem;
 
 .listNameButton
   width: 200px;
   height: 200px;
   border-radius: 25px;
+
