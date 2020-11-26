@@ -15,12 +15,6 @@
   animation: add-spin-ccw infinite 30s linear;
 }
 
-.listNameButton {
-  width: 200px;
-  height: 200px;
-  border-radius: 25px;
-}
-
 @keyframes add-spin-cw {
   from {
     transform: rotate(0deg);
