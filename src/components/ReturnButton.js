@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button.js";
 import PropTypes from "prop-types";
 
-import returnIcon from "../assets/back_button.png";
+import returnIcon from "../assets/return_button.png";
 
 class ReturnButton extends React.Component {
   constructor(props) {

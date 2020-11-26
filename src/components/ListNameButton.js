@@ -4,7 +4,7 @@ import Button from "./Button.js";
 class ListNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "pink" };
+    this.state = { background: "#FF99FF" };
     this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
