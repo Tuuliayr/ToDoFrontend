@@ -1,31 +1,25 @@
 import React from "react";
+import Button from "./Button.js";
 
 class ListNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { color: "pink" };
+    this.state = { background: "pink" };
     this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
   handleClickEvent() {
     this.setState((state) => ({
-      color: "green",
+      background: "green",
     }));
   }
 
   render() {
     return (
-      <div
-        style={{
-          display: "inline-block",
-          color: this.state.color,
-        }}
-      >
-        <button
-          className="listNameButton"
-          color="green"
-          title="List name"
-        ></button>
+      <div>
+        <Button style={{ background: this.state.background }}>
+          {this.props.name}
+        </Button>
       </div>
     );
   }
