@@ -11,7 +11,7 @@ class ListView extends React.Component {
   async componentDidMount() {
     axios({
       method: "get",
-      baseURL: "http://localhost:8080/tasks/lists",
+      baseURL: "http://localhost:8080/api/lists",
       url: "/",
     }).then((response) => {
       this.setState({ lists: response.data });
