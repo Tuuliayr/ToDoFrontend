@@ -11,7 +11,7 @@ class TaskView extends React.Component {
   async componentDidMount() {
     axios({
       method: "get",
-      baseURL: "http://localhost:8080/api",
+      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
       url: "/",
     }).then((response) => {
       this.setState({ tasks: response.data });
