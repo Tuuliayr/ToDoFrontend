@@ -11,10 +11,11 @@ class ListView extends React.Component {
   async componentDidMount() {
     axios({
       method: "get",
-      baseURL: "http://localhost:8080/api/lists",
+      baseURL: "http://tamk-4a00ez62-3001-group10.herokuapp.com/api/lists",
       url: "/",
     }).then((response) => {
       this.setState({ lists: response.data });
+      this.state.lists.push({ id: 0, name: "Kaikki" });
     });
   }
 

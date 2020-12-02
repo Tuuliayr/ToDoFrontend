@@ -11,7 +11,7 @@ class TaskView extends React.Component {
   async componentDidMount() {
     axios({
       method: "get",
-      baseURL: "http://localhost:8080/api",
+      baseURL: "http://tamk-4a00ez62-3001-group10.herokuapp.com/api",
       url: "/",
     }).then((response) => {
       this.setState({ tasks: response.data });
@@ -23,15 +23,16 @@ class TaskView extends React.Component {
   };
 
   render() {
-    const li = this.state.tasks.map((task) => (
-      <li>{JSON.stringify(task.name)}</li>
+    const tasks = this.state.tasks.map((task) => (
+      <ListNameButton name={task.name} />
     ));
     return (
       <div>
         <TopBar />
-        <ul>{li}</ul>
-        <AddButton onAddNew={this.handleCreate} />
-        <ListNameButton />
+        <body>
+          {tasks}
+          <AddButton onAddNew={this.handleCreate} />
+        </body>
       </div>
     );
   }
