@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./App.sass";
+import DropDown from "./components/DropDown.js";
 // import axios from "axios";
 
 class CreateTaskView extends React.Component {
@@ -27,8 +28,7 @@ class CreateTaskView extends React.Component {
           <input type="text" style={{ marginBottom: "2rem" }} />
           <p>Add to list:</p>
           <input type="text" style={{ marginBottom: "2rem" }} />
-          <p>Add priority:</p>
-          <input type="text" style={{ marginBottom: "2rem" }} />
+          <DropDown />
         </form>
       </div>
     );
