@@ -29,7 +29,6 @@ class CreateTaskView extends React.Component {
     return (
       <div>
         <body>
-          {tasks}
           <AddButton onAddNew={this.handleCreate} />
         </body>
       </div>

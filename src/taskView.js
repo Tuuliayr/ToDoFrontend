@@ -28,7 +28,6 @@ class TaskView extends React.Component {
     ));
     return (
       <div>
-        <TopBar />
         <body>
           {tasks}
           <AddButton onAddNew={this.handleCreate} />

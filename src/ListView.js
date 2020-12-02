@@ -28,7 +28,6 @@ class ListView extends React.Component {
     ));
     return (
       <div>
-        <TopBar />
         <body>
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
