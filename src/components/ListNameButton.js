@@ -26,6 +26,8 @@ class ListNameButton extends React.Component {
           }}
         >
           {this.props.name}
+          {"\n Pri: \n"}
+          {this.props.priority}
         </Button>
       </div>
     );

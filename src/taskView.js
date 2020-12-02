@@ -24,7 +24,7 @@ class TaskView extends React.Component {
 
   render() {
     const tasks = this.state.tasks.map((task) => (
-      <ListNameButton name={task.name} />
+      <ListNameButton name={task.name} priority={task.priority} />
     ));
     return (
       <div>
