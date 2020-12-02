@@ -15,7 +15,6 @@ class ListView extends React.Component {
       url: "/",
     }).then((response) => {
       this.setState({ lists: response.data });
-      this.state.lists.push({ id: 0, name: "Kaikki" });
     });
   }
 
@@ -31,6 +30,7 @@ class ListView extends React.Component {
       <div>
         <TopBar />
         <body>
+          <ListNameButton name={"Kaikki"} id={0} />
           {lists}
           <AddButton className="addButton" onAddNew={this.handleCreate} />
         </body>
