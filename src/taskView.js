@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.sass";
-import TopBar from "./components/TopBar.js";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
@@ -24,11 +23,10 @@ class TaskView extends React.Component {
 
   render() {
     const tasks = this.state.tasks.map((task) => (
-      <ListNameButton name={task.name} />
+      <ListNameButton name={task.name} priority={task.priority} />
     ));
     return (
       <div>
-        <TopBar />
         <body>
           {tasks}
           <AddButton onAddNew={this.handleCreate} />

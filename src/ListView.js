@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.sass";
-import TopBar from "./components/TopBar.js";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
@@ -15,7 +14,6 @@ class ListView extends React.Component {
       url: "/",
     }).then((response) => {
       this.setState({ lists: response.data });
-      this.state.lists.push({ id: 0, name: "Kaikki" });
     });
   }
 
@@ -30,8 +28,8 @@ class ListView extends React.Component {
     ));
     return (
       <div>
-        <TopBar />
         <body>
+          <ListNameButton name={"Kaikki"} id={0} />
           {lists}
           <Example></Example>
           <AddButton className="addButton" onAddNew={this.changeToCreateView} />

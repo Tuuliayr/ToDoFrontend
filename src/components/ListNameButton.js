@@ -4,15 +4,15 @@ import Button from "./Button.js";
 class ListNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#FF99FF" };
-    this.handleClickEvent = this.handleClickEvent.bind(this);
+    this.state = { background: "#F78CF7" };
+    //this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
-  handleClickEvent() {
-    this.setState((state) => ({
-      background: "green",
-    }));
-  }
+  // handleClickEvent() {
+  //   this.setState((state) => ({
+  //     background: "green",
+  //   }));
+  // }
 
   render() {
     return (
@@ -26,6 +26,10 @@ class ListNameButton extends React.Component {
           }}
         >
           {this.props.name}
+          <br />
+          <br />
+          {"Pri: "}
+          {this.props.priority}
         </Button>
       </div>
     );
