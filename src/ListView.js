@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.sass";
-import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
 import Example from "./components/Example";
@@ -32,7 +31,6 @@ class ListView extends React.Component {
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
           <Example></Example>
-          <AddButton className="addButton" onAddNew={this.changeToCreateView} />
         </body>
       </div>
     );
