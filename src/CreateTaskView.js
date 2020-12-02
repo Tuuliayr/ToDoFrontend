@@ -1,8 +1,7 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import "./App.sass";
-import AddButton from "./components/AddButton.js";
 import axios from "axios";
-import ListNameButton from "./components/ListNameButton.js";
 
 class CreateTaskView extends React.Component {
   state = { tasks: [] };
@@ -18,22 +17,21 @@ class CreateTaskView extends React.Component {
     });
   }
 
-  handleCreate = () => {
-    // this.createTask({ likes: 0, text: "" });
-  };
-
   render() {
-    const tasks = this.state.tasks.map((task) => (
-      <ListNameButton name={task.name} priority={task.priority} />
-    ));
     return (
-      <div>
-        <body>
-          <AddButton onAddNew={this.handleCreate} />
-        </body>
-      </div>
+      <form>
+        <p>Task name:</p>
+        <input type="text" />
+        <p>Deadline:</p>
+        <input type="text" />
+        <p>Add to list:</p>
+        <input type="text" />
+        <p>Add priority:</p>
+        <input type="text" />
+      </form>
     );
   }
 }
 
+ReactDOM.render(<CreateTaskView />, document.getElementById("root"));
 export default CreateTaskView;

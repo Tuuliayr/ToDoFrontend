@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.sass";
-import TopBar from "./components/TopBar.js";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
