@@ -1,33 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// import addIcon from "../assets/coin-ikoni.png";
 import Button from "./Button.js";
 
-class AddButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fontSize: "3rem",
-    };
-  }
+const AddButton = (props) => {
+  return (
+    <div style={{ display: "inline-block" }}>
+      <Button onClick={props.onAddNew} style={{ fontSize: "3rem" }}>
+        +
+      </Button>
+    </div>
+  );
+};
 
-  propTypes = {
-    onAddNewTask: PropTypes.func.isRequired,
-  };
-
-  render() {
-    return (
-      <div style={{ display: "inline-block" }}>
-        <Button
-          onClick={this.props.onAddNewTask}
-          style={{ fontSize: this.state.fontSize }}
-        >
-          {/* <img src={addIcon} alt="AddIcon" /> */}+
-        </Button>
-      </div>
-    );
-  }
-}
+AddButton.propTypes = {
+  onAddNew: PropTypes.node.isRequired,
+};
 
 export default AddButton;
