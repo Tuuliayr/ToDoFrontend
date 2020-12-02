@@ -20,9 +20,13 @@ class App extends React.Component {
           <li>
             <Link to="/tasks">Tasks</Link>
           </li>
+          <li>
+            <Link to="/create-task">Create task</Link>
+          </li>
 
           <Route exact path="/" component={ListView} />
           <Route exact path="/tasks" component={TaskView} />
+          <Route exact path="/create-task" component={TaskView} />
         </div>
       </Router>
     );
