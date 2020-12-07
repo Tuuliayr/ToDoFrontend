@@ -23,14 +23,14 @@ class ListView extends React.Component {
 
   render() {
     const lists = this.state.lists.map((list) => (
-      <ListNameButton name={list.name} />
+      <ListNameButton name={list.name} id={list.id} />
     ));
     return (
       <div>
         <body>
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
-          <Example></Example>
+          <Example />
         </body>
       </div>
     );

@@ -2,16 +2,21 @@ import React from "react";
 import "./App.sass";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
-import ListNameButton from "./components/ListNameButton.js";
+import TaskNameButton from "./components/TaskNameButton.js";
 
 class TaskView extends React.Component {
   state = { tasks: [] };
 
   async componentDidMount() {
+    const id = this.props.match.params.listId;
+    let path = "/";
+    if (id > 0) {
+      path = "/list" + id;
+    }
     axios({
       method: "get",
       baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-      url: "/",
+      url: path,
     }).then((response) => {
       this.setState({ tasks: response.data });
     });
@@ -23,7 +28,12 @@ class TaskView extends React.Component {
 
   render() {
     const tasks = this.state.tasks.map((task) => (
-      <ListNameButton name={task.name} priority={task.priority} />
+      <TaskNameButton
+        name={task.name}
+        id={task.id}
+        priority={task.priority}
+        listId={task.list_id}
+      />
     ));
     return (
       <div>

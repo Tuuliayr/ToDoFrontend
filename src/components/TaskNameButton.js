@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button.js";
 import { withRouter } from "react-router-dom";
 
-class ListNameButton extends React.Component {
+class TaskNameButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { background: "#F78CF7" };
@@ -10,7 +10,7 @@ class ListNameButton extends React.Component {
   }
 
   handleClickEvent() {
-    const path = "/list" + this.props.id;
+    const path = "/task" + this.props.id;
     this.props.history.push(path);
   }
 
@@ -21,16 +21,22 @@ class ListNameButton extends React.Component {
           onClick={this.handleClickEvent}
           style={{
             width: "17rem",
-            height: "10rem",
+            height: "8rem",
             borderRadius: "2.5rem",
             background: this.state.background,
           }}
         >
           {this.props.name}
+          <br />
+          <br />
+          {"Pri: "}
+          {this.props.priority}
+          <br />
+          {"List: " + this.props.listId}
         </Button>
       </div>
     );
   }
 }
 
-export default withRouter(ListNameButton);
+export default withRouter(TaskNameButton);
