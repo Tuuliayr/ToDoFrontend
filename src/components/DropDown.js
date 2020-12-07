@@ -1,34 +1,30 @@
-import React, { useState } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
+import React from "react";
+// { useState } from "react";
+// import {
+//   Dropdown,
+//   DropdownToggle,
+//   DropdownMenu,
+//   DropdownItem,
+// } from "reactstrap";
 
 class DropDown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropDownValue: "Select priority",
+      value: "Select priority",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ dropDownValue: event.target.dropDownValue });
+    this.setState({ value: event.target.value });
   }
 
   handleSubmit(event) {
-    alert("Your favorite flavor is: " + this.state.dropDownValue);
+    alert("Your favorite flavor is: " + this.state.value);
     event.preventDefault();
   }
-
-  // dropDown = (props) => {
-  //   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  //toggle = () => setDropdownOpen((prevState) => !prevState);
 
   render() {
     return (
@@ -36,7 +32,8 @@ class DropDown extends React.Component {
         <label>
           Choose priority:
           <br />
-          <select value={this.state.dropDownValue} onChange={this.handleChange}>
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
