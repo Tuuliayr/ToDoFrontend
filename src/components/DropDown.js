@@ -1,26 +1,41 @@
-import React, { useState } from "react";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
+import React from "react";
 
-const DropDown = (props) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+class DropDown extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "Select priority",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
 
-  return (
-    <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle caret>Priority</DropdownToggle>
-      <DropdownMenu>
-        <DropdownItem>1</DropdownItem>
-        <DropdownItem>2</DropdownItem>
-        <DropdownItem>3</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-  );
-};
+  handleSubmit(event) {
+    alert("Your favorite flavor is: " + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Choose priority:
+          <br />
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="0">No priority</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
 
 export default DropDown;
