@@ -20,7 +20,7 @@ class CreateTaskView extends React.Component {
 
   render() {
     return (
-      <div class="form">
+      <div className="form">
         <form>
           <p>Task name:</p>
           <input type="text" style={{ marginBottom: "2rem" }} />

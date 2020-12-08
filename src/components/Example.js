@@ -9,7 +9,6 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./Button.sass";
-import "./Popover.sass";
 import ListForm from "./ListForm.js";
 
 const Example = (props) => {

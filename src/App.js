@@ -9,7 +9,6 @@ import TaskView from "./TaskView.js";
 //import CreateTaskView from "./CreateTaskView.js";
 
 class App extends React.Component {
-  //state jossa tieto mikä view kyseessä???
   render() {
     return (
       <Router>

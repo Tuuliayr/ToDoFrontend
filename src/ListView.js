@@ -27,11 +27,11 @@ class ListView extends React.Component {
     ));
     return (
       <div>
-        <body>
+        <div className="body">
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
           <Example />
-        </body>
+        </div>
       </div>
     );
   }

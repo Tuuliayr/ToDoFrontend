@@ -3,6 +3,7 @@ import "./App.sass";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import TaskNameButton from "./components/TaskNameButton.js";
+import TopBar from "./components/TopBar.js";
 
 class TaskView extends React.Component {
   state = { tasks: [] };
@@ -37,10 +38,10 @@ class TaskView extends React.Component {
     ));
     return (
       <div>
-        <body>
+        <div className="body">
           {tasks}
           <AddButton onAddNew={this.handleCreate} />
-        </body>
+        </div>
       </div>
     );
   }

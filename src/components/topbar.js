@@ -16,7 +16,8 @@ class TopBar extends React.Component {
           color: this.state.color,
         }}
       >
-        <ReturnButton className="return" onReturn={this.handleReturn} />
+        <ReturnButton />
+        {/* <ReturnButton className="return" onReturn={this.handleReturn} /> */}
         <h1>Top Nav Bar</h1>
       </div>
     );
