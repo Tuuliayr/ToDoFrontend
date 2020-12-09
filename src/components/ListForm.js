@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 const ListForm = (props) => {
   const [name, setname] = React.useState("");
@@ -17,6 +18,8 @@ const ListForm = (props) => {
     })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+    props.onSubmit("joku ihme viesti");
+    console.log("In handle Submit");
     event.preventDefault();
   };
 
@@ -37,6 +40,10 @@ const ListForm = (props) => {
       <input type="submit" name="Submit" />
     </form>
   );
+};
+
+ListForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ListForm;

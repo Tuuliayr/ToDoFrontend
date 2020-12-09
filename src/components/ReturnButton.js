@@ -1,24 +1,18 @@
 import React from "react";
 import Button from "./Button.js";
-// import PropTypes from "prop-types";
-
 import returnIcon from "../assets/return_button.png";
+import { useHistory } from "react-router-dom";
 
-class ReturnButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const ReturnButton = (props) => {
+  const history = useHistory();
 
-  render() {
-    return (
-      <div>
-        <Button onClick={this.props.onReturn}>
-          <img src={returnIcon} alt="returnIcon" style={{ height: "70px" }} />
-        </Button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Button onClick={() => history.goBack()}>
+        <img src={returnIcon} alt="returnIcon" style={{ height: "70px" }} />
+      </Button>
+    </div>
+  );
+};
 
 export default ReturnButton;

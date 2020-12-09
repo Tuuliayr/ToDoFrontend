@@ -23,10 +23,6 @@ class TaskView extends React.Component {
     });
   }
 
-  handleCreate = () => {
-    // this.createTask({ likes: 0, text: "" });
-  };
-
   render() {
     const tasks = this.state.tasks.map((task) => (
       <TaskNameButton
@@ -38,9 +34,10 @@ class TaskView extends React.Component {
     ));
     return (
       <div>
+        <TopBar return={true} />
         <div className="body">
           {tasks}
-          <AddButton onAddNew={this.handleCreate} />
+          <AddButton />
         </div>
       </div>
     );
