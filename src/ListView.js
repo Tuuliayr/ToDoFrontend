@@ -16,11 +16,6 @@ class ListView extends React.Component {
     });
   }
 
-  changeToCreateView = () => {
-    console.log("on chance to create view");
-    // this.createTask({ likes: 0, text: "" });
-  };
-
   render() {
     const lists = this.state.lists.map((list) => (
       <ListNameButton name={list.name} id={list.id} />
@@ -30,7 +25,7 @@ class ListView extends React.Component {
         <div className="body">
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
-          <Example />
+          <Example uusiFunkkari={this.teeJotain} />
         </div>
       </div>
     );
