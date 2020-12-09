@@ -23,8 +23,6 @@ class PriDropDown extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Choose priority:
-          <br />
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="0">No priority</option>
             <option value="1">1</option>

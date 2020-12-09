@@ -1,35 +1,49 @@
 import React from "react";
+import axios from "axios";
 
 class ListDropDown extends React.Component {
+  //state = { lists: [] };
+
   constructor(props) {
     super(props);
     this.state = {
-      value: "Select priority",
+      lists: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  async componentDidMount() {
+    axios({
+      method: "get",
+      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api/",
+      url: "/lists",
+    }).then((response) => {
+      this.setState({ lists: response.data });
+    });
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
-    alert("Your favorite flavor is: " + this.state.value);
-    event.preventDefault();
+    this.setState({ name: event.target.value });
   }
 
   render() {
+    const lists = this.state.lists.map((list) => (
+      <option name={list.name} id={list.id}>
+        {list.name}
+      </option>
+    ));
+    // const { lists } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      // <select onChange={this.handleChange}>
+      //   {this.state.lists.map((list) => {
+      //     return <option name={this.props.name}> {this.props.name} </option>;
+      //   })}
+      // </select>
+      <form>
         <label>
-          Choose priority:
-          <br />
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="0">No priority</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+          <select onChange={this.handleChange}>
+            <option>No list</option>
+            {lists}
           </select>
         </label>
         <input type="submit" value="Submit" />
