@@ -7,7 +7,7 @@ import {
   PopoverBody,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import "./Button.sass";
 import axios from "axios";
 

@@ -1,20 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
-
+import { withRouter } from "react-router-dom";
 import Button from "./Button.js";
 
-const AddButton = (props) => {
-  return (
-    <div style={{ display: "inline-block" }}>
-      <Button onClick={props.onAddNew} style={{ fontSize: "3rem" }}>
-        +
-      </Button>
-    </div>
-  );
-};
+class AddButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClickEvent = this.handleClickEvent.bind(this);
+  }
 
-AddButton.propTypes = {
-  onAddNew: PropTypes.node.isRequired,
-};
+  handleClickEvent() {
+    this.props.history.push("/create-task");
+  }
+  render() {
+    return (
+      <div style={{ display: "inline-block" }}>
+        <Button onClick={this.handleClickEvent} style={{ fontSize: "3rem" }}>
+          +
+        </Button>
+      </div>
+    );
+  }
+}
 
-export default AddButton;
+export default withRouter(AddButton);

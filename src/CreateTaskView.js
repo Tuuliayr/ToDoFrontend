@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./App.sass";
 import DropDown from "./components/DropDown.js";
+import TopBar from "./components/TopBar.js";
+
 // import axios from "axios";
 
 class CreateTaskView extends React.Component {
@@ -20,16 +22,19 @@ class CreateTaskView extends React.Component {
 
   render() {
     return (
-      <div className="form">
-        <form>
-          <p>Task name:</p>
-          <input type="text" style={{ marginBottom: "2rem" }} />
-          <p>Deadline:</p>
-          <input type="text" style={{ marginBottom: "2rem" }} />
-          <p>Add to list:</p>
-          <input type="text" style={{ marginBottom: "2rem" }} />
-          <DropDown />
-        </form>
+      <div>
+        <TopBar return={true} />
+        <div className="form">
+          <form>
+            <p>Task name:</p>
+            <input type="text" style={{ marginBottom: "2rem" }} />
+            <p>Deadline:</p>
+            <input type="text" style={{ marginBottom: "2rem" }} />
+            <p>Add to list:</p>
+            <input type="text" style={{ marginBottom: "2rem" }} />
+            <DropDown />
+          </form>
+        </div>
       </div>
     );
   }

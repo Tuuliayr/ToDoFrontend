@@ -3,6 +3,8 @@ import "./App.sass";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
 import Example from "./components/Example";
+import TopBar from "./components/TopBar.js";
+
 class ListView extends React.Component {
   state = { lists: [] };
 
@@ -22,6 +24,7 @@ class ListView extends React.Component {
     ));
     return (
       <div>
+        <TopBar return={false} />
         <div className="body">
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
