@@ -15,7 +15,7 @@ class PriDropDown extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("Your favorite flavor is: " + this.state.value);
+    alert("Your added priority: " + this.state.value);
     event.preventDefault();
   }
 
