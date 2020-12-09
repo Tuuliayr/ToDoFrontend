@@ -15,7 +15,7 @@ class PriDropDown extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("Your added priority: " + this.state.value);
+    alert("You added priority: " + this.state.value);
     event.preventDefault();
   }
 
