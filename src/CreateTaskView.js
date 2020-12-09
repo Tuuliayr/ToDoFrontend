@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./App.sass";
 import ListDropDown from "./components/ListDropDown.js";
 import PriDropDown from "./components/PriDropDown.js";
-import DropDown from "./components/DropDown.js";
 import TopBar from "./components/TopBar.js";
 
 // import axios from "axios";
@@ -29,7 +28,11 @@ class CreateTaskView extends React.Component {
         <div className="form">
           <form>
             <p>Task name:</p>
-            <input type="text" style={{ marginBottom: "2rem" }} />
+            <input
+              type="text"
+              placeholder="Task name..."
+              style={{ marginBottom: "2rem" }}
+            />
             <p>Deadline:</p>
             <input type="text" style={{ marginBottom: "2rem" }} />
             <br />

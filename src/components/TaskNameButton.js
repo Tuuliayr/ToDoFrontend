@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 class TaskNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#F78CF7" };
+    this.state = { background: "#FF83FF" };
     this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
