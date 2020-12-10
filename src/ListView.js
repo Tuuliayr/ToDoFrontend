@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.sass";
+import "./App.css";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
 import Example from "./components/Example";
@@ -24,11 +24,13 @@ class ListView extends React.Component {
     ));
     return (
       <div>
-        <TopBar return={false} />
-        <div className="body">
+        <TopBar className="topBarNoReturn" return={false} />
+        <div className="lists">
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
-          <Example uusiFunkkari={this.teeJotain} />
+        </div>
+        <div className="addListButton">
+          <Example />
         </div>
       </div>
     );

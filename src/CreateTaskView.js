@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./App.sass";
 import ListDropDown from "./components/ListDropDown.js";
 import PriDropDown from "./components/PriDropDown.js";
-import DropDown from "./components/DropDown.js";
 import TopBar from "./components/TopBar.js";
 
 // import axios from "axios";
@@ -26,7 +24,7 @@ class CreateTaskView extends React.Component {
     return (
       <div>
         <TopBar return={true} />
-        <div className="form">
+        <div className="createTaskForm">
           <form>
             <p>Task name:</p>
             <input type="text" style={{ marginBottom: "2rem" }} />

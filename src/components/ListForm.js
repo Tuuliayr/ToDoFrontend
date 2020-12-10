@@ -18,8 +18,6 @@ const ListForm = (props) => {
     })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-    props.onSubmit("joku ihme viesti");
-    console.log("In handle Submit");
     event.preventDefault();
   };
 

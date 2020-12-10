@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.sass";
+import "./App.css";
 import ListView from "./ListView.js";
 import CreateTaskView from "./CreateTaskView.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className="main">
           <Route exact path="/" component={ListView} />
           <Route exact path={"/list:listId([0-9]+)"} component={TaskView} />
           <Route exact path="/create-task" component={CreateTaskView} />
