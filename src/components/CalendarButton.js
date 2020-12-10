@@ -6,7 +6,7 @@ import {
   PopoverBody,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Button.sass";
+import "./Button.css";
 import TimeSelectorComponent from "./TimeSelector.js";
 import calendar from "../assets/icon-calendar.png";
 import axios from "axios";
