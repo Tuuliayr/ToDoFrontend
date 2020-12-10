@@ -71,11 +71,11 @@ export default function TimeSelectorComponent() {
           return date.date.getDay() === 0 ? "sunday" : "day-item";
         }}
         tileContent={(date, view) => {
-          return date.date.getDay() === 0 ? " X" : null;
+          return date.date.getDay() === 0 ? " " : null;
         }}
       />
 
-      <div className="selected-time-view">
+      <div className="selected-time-view" onChange={handleTimeChange}>
         {selectedDate.toLocaleDateString(locale) +
           ` at ${selectedDate
             .getHours()
@@ -96,7 +96,7 @@ export default function TimeSelectorComponent() {
           format="d.M.yyyy"
           okLabel="OK"
           cancelLabel="Cancel"
-          shouldDisableDate={(date) => date.getDay() === 3}
+          shouldDisableDate={(date) => date.getDay() === 2}
           disablePast={true}
           minDateMessage="This day has passed already!"
           // uncommenting these disables validation:
@@ -111,8 +111,8 @@ export default function TimeSelectorComponent() {
           label="Choose time"
           format="HH.mm"
           ampm={false}
-          okLabel="Valitse"
-          cancelLabel="Peruuta"
+          okLabel="OK"
+          cancelLabel="Cancel"
         />
       </MuiPickersUtilsProvider>
     </div>
