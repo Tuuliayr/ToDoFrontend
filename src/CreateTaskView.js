@@ -23,7 +23,7 @@ class CreateTaskView extends React.Component {
   render() {
     return (
       <div>
-        <TopBar return={true} />
+        <TopBar className="topBar" return={true} />
         <div className="createTaskForm">
           <form>
             <p>Task name:</p>
