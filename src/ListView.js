@@ -24,7 +24,7 @@ class ListView extends React.Component {
     ));
     return (
       <div>
-        <TopBar className="topBarNoReturn" return={false} />
+        <TopBar className="topBarNoReturn" name="Lists" return={false} />
         <div className="lists">
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
