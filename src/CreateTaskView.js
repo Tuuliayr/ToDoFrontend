@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./App.sass";
 import ListDropDown from "./components/ListDropDown.js";
 import PriDropDown from "./components/PriDropDown.js";
 import Calendar from "./components/CalendarButton.js";
@@ -15,7 +14,7 @@ class CreateTaskView extends React.Component {
     return (
       <div>
         <TopBar return={true} />
-        <div className="form">
+        <div className="createTaskForm">
           <form>
             <p>Task name:</p>
             <input

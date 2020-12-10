@@ -10,13 +10,15 @@ class TopBar extends React.Component {
   render() {
     return (
       <div
-        className="topBar"
+        className={this.props.className}
         style={{
           backgroundColor: this.state.background,
           color: this.state.color,
         }}
       >
-        {this.props.return && <ReturnButton />}
+        <div className="returnButton">
+          {this.props.return && <ReturnButton />}
+        </div>
         <h1>Top Nav Bar</h1>
       </div>
     );

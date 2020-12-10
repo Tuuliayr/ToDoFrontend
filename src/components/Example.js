@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import PropTypes from "prop-types";
-import "./Button.sass";
+import "./Button.css";
 import axios from "axios";
 
 // import ListForm from "./ListForm.js";
@@ -65,7 +65,6 @@ const Example = (props) => {
             <br />
             <input type="submit" name="Submit" />
           </form>
-          {/* <ListForm onSubmit={props.uusiFunkkari} /> */}
         </PopoverBody>
       </UncontrolledPopover>
     </div>

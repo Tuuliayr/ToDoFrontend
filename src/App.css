@@ -1,34 +1,69 @@
-.topBar {
+/* Make everything have max 64rem width and margin to middle */
+.main {
+  max-width: 64rem;
+  height: 100%;
+  margin: auto;
+}
+/* Align Test in center when there is no returnButton */
+.topBarNoReturn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 150px;
   width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Align items with even spaces around them */
+.topBar {
+  display: flex;
+  height: 150px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  justify-content: space-evenly;
+}
+
+/* Align items in center */
+.topBar h1,
+.returnButton {
+  align-self: center;
+}
+
+/* Align listNameButtons in rows with three items when wide screen */
+.lists,
+.tasks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  background-color: #9b6bb3;
+  grid-gap: 1rem;
+  justify-items: center;
 }
 
-.add-cw {
-  animation: add-spin-cw infinite 30s linear;
+/* Align button to middle and having a bit space over it */
+.addListButton,
+.addTaskButton {
+  margin: 1rem 0rem;
+  text-align: center;
 }
 
-.add-ccw {
-  animation: add-spin-ccw infinite 30s linear;
+/* Align items in center with name tags starting in the same line as the input box*/
+.createTaskForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 200px;
 }
 
-@keyframes add-spin-cw {
-  from {
-    transform: rotate(0deg);
+/* Align listNameButtons in rows with 2 items when middle wide screen */
+@media (max-width: 1060px) {
+  .lists,
+  .tasks {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-@keyframes add-spin-ccw {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
+/* Align listNameButtons in rows with1 item when small screen */
+@media (max-width: 650px) {
+  .lists,
+  .tasks {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

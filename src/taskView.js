@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.sass";
 import AddButton from "./components/AddButton.js";
 import axios from "axios";
 import TaskNameButton from "./components/TaskNameButton.js";
@@ -34,9 +33,9 @@ class TaskView extends React.Component {
     ));
     return (
       <div>
-        <TopBar return={true} />
-        <div className="body">
-          {tasks}
+        <TopBar className="topBar" return={true} />
+        <div className="tasks">{tasks}</div>
+        <div className="addTaskButton">
           <AddButton />
         </div>
       </div>
