@@ -5,23 +5,21 @@ import TaskNameButton from "./components/TaskNameButton.js";
 import TopBar from "./components/TopBar.js";
 
 class TaskView extends React.Component {
-  state = { tasks: [], listName: "All Tasks" };
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: this.props.match.params.listId,
+      tasks: [],
+      listName: this.props.match.params.listName,
+    };
+  }
 
   async componentDidMount() {
-    const id = this.props.match.params.listId;
     let path = "/";
-    if (id > 0) {
-      path = "/list" + id;
-      //get name for the list
-      axios({
-        method: "get",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        url: "/findList" + id,
-      }).then((response) => {
-        this.setState({ listName: response.data });
-      });
+    if (this.state.id > 0) {
+      path = "/list" + this.state.id;
     }
-    //get tasks for the list
+    //get tasks of the list
     axios({
       method: "get",
       baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
@@ -40,6 +38,7 @@ class TaskView extends React.Component {
         listId={task.list_id}
       />
     ));
+
     return (
       <div>
         <TopBar
