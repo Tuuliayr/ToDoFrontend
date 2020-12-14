@@ -46,7 +46,6 @@ class ListDropDown extends React.Component {
             {lists}
           </select>
         </label>
-        <input type="submit" value="Submit" />
       </form>
     );
   }
