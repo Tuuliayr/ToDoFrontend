@@ -2,12 +2,14 @@ import React from "react";
 import Button from "./Button.js";
 import { withRouter } from "react-router-dom";
 import DeleteButton from "./DeleteButton.js";
+import axios from "axios";
 
 class TaskNameButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { background: "#FF83FF" };
     this.handleClickEvent = this.handleClickEvent.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClickEvent() {
@@ -15,8 +17,18 @@ class TaskNameButton extends React.Component {
     this.props.history.push(path);
   }
 
-  handleDelete(event) {
-    console.log("on delete");
+  async handleDelete(event) {
+    try {
+      const response = await axios({
+        method: "delete",
+        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+        url: "/task" + this.props.id,
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+    event.preventDefault();
     event.stopPropagation();
   }
 
@@ -24,7 +36,7 @@ class TaskNameButton extends React.Component {
     return (
       <div>
         <Button
-          onClick={this.handleClickEvent}
+          onClick={this.handleDelete}
           style={{
             width: "17rem",
             height: "8rem",

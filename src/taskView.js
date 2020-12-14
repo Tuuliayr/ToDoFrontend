@@ -20,13 +20,17 @@ class TaskView extends React.Component {
       path = "/list" + this.state.id;
     }
     //get tasks of the list
-    axios({
-      method: "get",
-      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-      url: path,
-    }).then((response) => {
-      this.setState({ tasks: response.data });
-    });
+    try {
+      axios({
+        method: "get",
+        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+        url: path,
+      }).then((response) => {
+        this.setState({ tasks: response.data });
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
