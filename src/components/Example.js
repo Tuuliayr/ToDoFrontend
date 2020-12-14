@@ -29,7 +29,6 @@ const Example = (props) => {
     })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-    console.log("In handle Submit");
     event.preventDefault();
   };
 

@@ -13,7 +13,11 @@ class App extends React.Component {
       <Router>
         <div className="main">
           <Route exact path="/" component={ListView} />
-          <Route exact path={"/list:listId([0-9]+)"} component={TaskView} />
+          <Route
+            exact
+            path={"/list:listId([0-9]+):listName([a-zA-ZdåäöÅÄÖ-]+)"}
+            component={TaskView}
+          />
           <Route exact path="/create-task" component={CreateTaskView} />
         </div>
       </Router>

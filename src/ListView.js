@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
-import Example from "./components/Example";
+import AddListButton from "./components/AddListButton.js";
 import TopBar from "./components/TopBar.js";
 
 class ListView extends React.Component {
@@ -24,13 +24,13 @@ class ListView extends React.Component {
     ));
     return (
       <div>
-        <TopBar className="topBarNoReturn" return={false} />
+        <TopBar className="topBarNoReturn" name="Lists" return={false} />
         <div className="lists">
           <ListNameButton name={"Kaikki"} id={0} />
           {lists}
         </div>
         <div className="addListButton">
-          <Example />
+          <AddListButton />
         </div>
       </div>
     );

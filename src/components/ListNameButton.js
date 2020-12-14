@@ -10,7 +10,7 @@ class ListNameButton extends React.Component {
   }
 
   handleClickEvent() {
-    const path = "/list" + this.props.id;
+    const path = "/list" + this.props.id + this.props.name;
     this.props.history.push(path);
   }
 

@@ -4,7 +4,11 @@ import ReturnButton from "./ReturnButton.js";
 class TopBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#9B6BB3", color: "white" };
+    this.state = {
+      background: "#9B6BB3",
+      color: "white",
+      name: this.props.name,
+    };
   }
 
   render() {
@@ -19,7 +23,7 @@ class TopBar extends React.Component {
         <div className="returnButton">
           {this.props.return && <ReturnButton />}
         </div>
-        <h1>Top Nav Bar</h1>
+        <h1>{this.state.name}</h1>
       </div>
     );
   }

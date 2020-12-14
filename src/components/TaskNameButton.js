@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button.js";
 import { withRouter } from "react-router-dom";
+import DeleteButton from "./DeleteButton.js";
 
 class TaskNameButton extends React.Component {
   constructor(props) {
@@ -26,8 +27,12 @@ class TaskNameButton extends React.Component {
             background: this.state.background,
           }}
         >
-          {this.props.name}
-          <br />
+          <div className="taskHeadline">
+            <div className="taskName">{this.props.name}</div>
+            <div className="deleteTask">
+              <DeleteButton />
+            </div>
+          </div>
           <br />
           {"Pri: "}
           {this.props.priority}
