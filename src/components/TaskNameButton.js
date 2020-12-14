@@ -15,6 +15,11 @@ class TaskNameButton extends React.Component {
     this.props.history.push(path);
   }
 
+  handleDelete(event) {
+    console.log("on delete");
+    event.stopPropagation();
+  }
+
   render() {
     return (
       <div>
@@ -30,7 +35,7 @@ class TaskNameButton extends React.Component {
           <div className="taskHeadline">
             <div className="taskName">{this.props.name}</div>
             <div className="deleteTask">
-              <DeleteButton />
+              <DeleteButton onClick={this.handleDelete} />
             </div>
           </div>
           <br />
