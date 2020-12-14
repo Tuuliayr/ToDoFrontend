@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 import ListNameButton from "./components/ListNameButton.js";
-import Example from "./components/Example";
+import AddListButton from "./components/AddListButton.js";
 import TopBar from "./components/TopBar.js";
 
 class ListView extends React.Component {
@@ -30,7 +30,7 @@ class ListView extends React.Component {
           {lists}
         </div>
         <div className="addListButton">
-          <Example />
+          <AddListButton />
         </div>
       </div>
     );

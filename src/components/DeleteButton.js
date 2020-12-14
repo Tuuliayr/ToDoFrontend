@@ -3,11 +3,13 @@ import Button from "./Button.js";
 import returnIcon from "../assets/delete.png";
 
 const DeleteButton = (props) => {
-  const handleChange = () => {};
+  const handleDelete = () => {
+    console.log("on delete");
+  };
 
   return (
     <div>
-      <Button onClick={handleChange} style={{ padding: "0.25rem" }}>
+      <Button onClick={handleDelete} style={{ padding: "0.25rem" }}>
         <img src={returnIcon} alt="deleteIcon" style={{ height: "1.5rem" }} />
       </Button>
     </div>

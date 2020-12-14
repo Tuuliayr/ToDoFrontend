@@ -18,7 +18,7 @@ class App extends React.Component {
             path={"/list:listId([0-9]+):listName([a-zA-ZdåäöÅÄÖ-]+)"}
             component={TaskView}
           />
-          <Route exact path="/create-task" component={CreateTaskView} />
+          {/* <Route exact path="/create-task" component={CreateTaskView} /> */}
         </div>
       </Router>
     );
