@@ -18,16 +18,25 @@ class CreateTaskView extends React.Component {
     };
   }
 
-  // handleChange = (event) => {
-  //   this.setState({ [event.target.name]: event.target.value });
-  // };
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   handleSubmit = (event) => {
     axios({
       method: "post",
       url: "/task",
       baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-      data: { name: "Tiskaapa", priority: event.priority.priority, list_id: 2 },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
+      },
+      data: {
+        name: "Tiskaapa",
+        priority: event.target.value, //201
+        // priority: this.state.priority, //200
+        list_id: 2,
+      },
     })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
@@ -54,12 +63,13 @@ class CreateTaskView extends React.Component {
             <br />
             <p>Choose priority:</p>
             <PriDropDown
-              // name={"priority"}
-              value={this.state.priority}
-              // onChange={this.handleChange.bind(this)}
+              // priority={this.state.priority}
+              name="pri"
+              value={this.state.pri}
+              onChange={this.handleChange.bind(this)}
             />
             <br />
-            <button type="submit">Add</button>
+            <button type="submit">Create task</button>
             {/* <input type="text" value={this.state.priority} /> */}
             {/* <button onClick={this.handleChange.bind(this)}>Add task</button> */}
           </form>
