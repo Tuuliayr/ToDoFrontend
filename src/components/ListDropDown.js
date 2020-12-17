@@ -41,7 +41,7 @@ class ListDropDown extends React.Component {
       // </select>
       <form>
         <label>
-          <select onChange={this.handleChange}>
+          <select onChange={this.props.handleclick}>
             <option>No list</option>
             {lists}
           </select>
