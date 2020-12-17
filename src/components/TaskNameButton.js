@@ -32,6 +32,16 @@ class TaskNameButton extends React.Component {
     window.location.reload();
   }
 
+  async handleCheck(event) {
+    event.stopPropagation();
+    // try {
+    //   const response = await axios({
+
+    //   })
+    // }
+    console.log("checked");
+  }
+
   render() {
     return (
       <div>
@@ -45,6 +55,7 @@ class TaskNameButton extends React.Component {
           }}
         >
           <div className="taskHeadline">
+            <input type="checkbox" onClick={this.handleCheck}></input>
             <div className="taskName">{this.props.name}</div>
             <div className="deleteTask">
               <DeleteButton onClick={this.handleDelete.bind(this)} />
