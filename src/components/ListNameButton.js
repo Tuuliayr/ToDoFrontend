@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button.js";
 import { withRouter } from "react-router-dom";
+import DeleteButton from "./DeleteButton.js";
 
 class ListNameButton extends React.Component {
   constructor(props) {
@@ -26,6 +27,9 @@ class ListNameButton extends React.Component {
             background: this.state.background,
           }}
         >
+          <div className="deleteList">
+            <DeleteButton onClick={this.props.handleDelete} />
+          </div>
           {this.props.name}
         </Button>
       </div>

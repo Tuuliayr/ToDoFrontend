@@ -67,6 +67,12 @@
   margin-top: -20px;
 }
 
+.deleteList {
+  margin-top: -50px;
+  margin-left: 200px;
+  margin-bottom: 25px;
+}
+
 .taskName {
   padding-left: 1rem;
   margin-top: -10px;

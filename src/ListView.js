@@ -18,6 +18,23 @@ class ListView extends React.Component {
     });
   }
 
+  async handleDelete(event) {
+    event.stopPropagation();
+
+    try {
+      const response = await axios({
+        method: "delete",
+        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+        url: "/list" + event.target.id,
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+
+    this.componentDidMount();
+  }
+
   render() {
     const lists = this.state.lists.map((list) => (
       <ListNameButton name={list.name} id={list.id} />
