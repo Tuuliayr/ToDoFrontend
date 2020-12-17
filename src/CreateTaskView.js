@@ -6,84 +6,27 @@ import Calendar from "./components/CalendarButton.js";
 import TopBar from "./components/TopBar.js";
 import axios from "axios";
 
-// const CreateTaskView = (props) => {
-//   const [priority, setPriority] = React.useState("");
-
-//   const handleChange = (event) => {
-//     setPriority(event.target.value);
-//   };
-
-//   const handleSubmit = (event) => {
-//     this.isMounted = true;
-//     axios({
-//       method: "post",
-//       url: "/task",
-//       baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json",
-//       },
-//       data: {
-//         name: "Tiskaapa",
-//         priority: priority,
-//         list_id: 2,
-//       },
-//     })
-//       .then((result) => {
-//         if (this.isMounted) {
-//           this.setState({
-//             news: result.data.hits,
-//           });
-//         }
-//         return () => {
-//           this.isMounted = false;
-//         };
-//       })
-//       .then((response) => console.log(response))
-//       .catch((err) => console.log(err));
-//     event.preventDefault();
-//   };
-
-//   return (
-//     <div>
-//       <TopBar className="topBar" name="Create Task" return={true} />
-//       <div className="createTaskForm">
-//         <div onSubmit={handleSubmit}>
-//           <p>Task name:</p>
-//           <input
-//             type="text"
-//             placeholder="Task name..."
-//             style={{ marginBottom: "2rem" }}
-//           />
-//           <p>Deadline:</p>
-//           <Calendar />
-//           <br />
-//           <p>Add to list:</p>
-//           <ListDropDown />
-//           <br />
-//           <p>Choose priority:</p>
-//           <PriDropDown value={priority} onChange={handleChange} />
-//           <br />
-//           <button type="submit">Create task</button>
-//           {/* <input type="text" value={this.state.priority} /> */}
-//           {/* <button onClick={this.handleChange.bind(this)}>Add task</button> */}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 class CreateTaskView extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleChange = this.handleChange.bind(this);
     this.state = {
-      name: "",
+      listName: "",
       priority: "",
       list_id: "",
-      listName: "",
+      lists: [],
     };
+  }
+
+  async componentDidMount() {
+    axios({
+      method: "get",
+      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api/",
+      url: "/lists",
+    }).then((response) => {
+      this.setState({ lists: response.data });
+    });
   }
 
   // handleChange = (event) => {
@@ -95,6 +38,7 @@ class CreateTaskView extends React.Component {
   handleListChange = (event) => {
     this.setState({ listName: event.target.value });
     console.log(event.target.value);
+    console.log(event.target);
   };
 
   handlePriChange = (event) => {
@@ -114,7 +58,7 @@ class CreateTaskView extends React.Component {
       data: {
         name: document.getElementById("taskName").value,
         priority: Number(this.state.priority),
-        list_id: 1,
+        list_id: 3,
       },
     })
       .then((response) => console.log(response))
