@@ -58,9 +58,15 @@
   justify-content: space-between;
 }
 
+.taskHeadline input {
+  margin-top: -10px;
+  transform: scale(1.5);
+}
+
 .deleteTask {
   margin-top: -20px;
 }
+
 .taskName {
   padding-left: 1rem;
   margin-top: -10px;

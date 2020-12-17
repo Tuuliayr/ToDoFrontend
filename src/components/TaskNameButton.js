@@ -17,22 +17,6 @@ class TaskNameButton extends React.Component {
     this.props.history.push(path);
   }
 
-  async handleDelete(event) {
-    event.stopPropagation();
-
-    try {
-      const response = await axios({
-        method: "delete",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        url: "/task" + this.props.id,
-      });
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-    window.location.reload();
-  }
-
   async handleCheck(event) {
     event.stopPropagation();
     this.setState({ checked: !this.state.checked });
