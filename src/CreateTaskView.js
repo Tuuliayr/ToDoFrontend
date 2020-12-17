@@ -86,15 +86,21 @@ class CreateTaskView extends React.Component {
     };
   }
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  // handleChange = (event) => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  //   console.log(event.target.name);
+  //   console.log(event.target.value);
+  // };
+
+  handleListChange = (event) => {
+    this.setState({ listName: event.target.value });
     console.log(event.target.value);
   };
 
-  // handleListChange = (event) => {
-  //   this.setState({ listName: event.target.value });
-  //   console.log(event.target.value);
-  // };
+  handlePriChange = (event) => {
+    this.setState({ priority: event.target.value });
+    console.log(event.target.value);
+  };
 
   handleSubmit = (event) => {
     axios({
@@ -107,8 +113,8 @@ class CreateTaskView extends React.Component {
       },
       data: {
         name: document.getElementById("taskName").value,
-        priority: 1,
-        list_id: 2,
+        priority: Number(this.state.priority),
+        list_id: 1,
       },
     })
       .then((response) => console.log(response))
@@ -133,10 +139,10 @@ class CreateTaskView extends React.Component {
             <Calendar />
             <br />
             <p>Add to list:</p>
-            <ListDropDown handleclick={this.handleChange.bind(this)} />
+            <ListDropDown handleclick={this.handleListChange.bind(this)} />
             <br />
             <p>Choose priority:</p>
-            <PriDropDown handleclick={this.handleChange.bind(this)} />
+            <PriDropDown handleclick={this.handlePriChange.bind(this)} />
             <br />
             <button type="submit">Create task</button>
             {/* <input type="text" value={this.state.priority} /> */}
