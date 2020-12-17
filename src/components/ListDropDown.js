@@ -9,7 +9,7 @@ class ListDropDown extends React.Component {
     this.state = {
       lists: [],
     };
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
@@ -22,9 +22,9 @@ class ListDropDown extends React.Component {
     });
   }
 
-  handleChange(event) {
-    this.setState({ name: event.target.value });
-  }
+  // handleChange(event) {
+  //   this.setState({ name: event.target.value });
+  // }
 
   render() {
     const lists = this.state.lists.map((list) => (
@@ -32,16 +32,10 @@ class ListDropDown extends React.Component {
         {list.name}
       </option>
     ));
-    // const { lists } = this.state;
     return (
-      // <select onChange={this.handleChange}>
-      //   {this.state.lists.map((list) => {
-      //     return <option name={this.props.name}> {this.props.name} </option>;
-      //   })}
-      // </select>
       <form>
         <label>
-          <select onChange={this.handleChange}>
+          <select onChange={this.props.handleclick}>
             <option>No list</option>
             {lists}
           </select>
