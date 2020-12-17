@@ -1,15 +1,3 @@
-// DISCLAIMER: this code should not be treated as any "model example"
-// of good code. It is unpolished and may contain bugs and be written
-// in a fashion that should be avoided when creating "real" applications.
-// This example has been created merely to demonstrate some points
-// discussed during the remote session. Therefore, the code may
-// contain unorthodox patterns and ways to implement functionalities.
-
-// npm install react-calendar
-// npm install @material-ui/pickers
-// npm install @material-ui/core
-// npm install @date-io/date-fns@1.x date-fns
-
 import React, { useState, useEffect, useRef } from "react";
 import Calendar from "react-calendar";
 

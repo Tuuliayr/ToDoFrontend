@@ -5,7 +5,6 @@ import CreateTaskView from "./CreateTaskView.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //    JOTAIN MAHDOLLISIA VIEWEJÄ
 import TaskView from "./TaskView.js";
-//import CreateTaskView from "./CreateTaskView.js";
 
 class App extends React.Component {
   render() {
@@ -18,7 +17,7 @@ class App extends React.Component {
             path={"/list:listId([0-9]+):listName([a-zA-ZdåäöÅÄÖ-]+)"}
             component={TaskView}
           />
-          {/* <Route exact path="/create-task" component={CreateTaskView} /> */}
+          <Route exact path="/create-task" component={CreateTaskView} />
         </div>
       </Router>
     );

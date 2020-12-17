@@ -7,30 +7,24 @@ class PriDropDown extends React.Component {
       value: "Select priority",
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
-    alert("You added priority: " + this.state.value);
-    event.preventDefault();
-  }
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <label>
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="0">No priority</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
+            {this.props.value}
           </select>
         </label>
-        <input type="submit" value="Submit" />
       </form>
     );
   }
