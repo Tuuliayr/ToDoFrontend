@@ -9,7 +9,6 @@ class TaskNameButton extends React.Component {
     super(props);
     this.state = { background: "#FF83FF" };
     this.handleClickEvent = this.handleClickEvent.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClickEvent() {
@@ -30,6 +29,7 @@ class TaskNameButton extends React.Component {
     } catch (err) {
       console.log(err);
     }
+    window.location.reload();
   }
 
   render() {
@@ -47,7 +47,7 @@ class TaskNameButton extends React.Component {
           <div className="taskHeadline">
             <div className="taskName">{this.props.name}</div>
             <div className="deleteTask">
-              <DeleteButton onClick={this.handleDelete} />
+              <DeleteButton onClick={this.handleDelete.bind(this)} />
             </div>
           </div>
           <br />
