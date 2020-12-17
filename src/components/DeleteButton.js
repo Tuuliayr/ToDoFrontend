@@ -6,7 +6,12 @@ const DeleteButton = (props) => {
   return (
     <div>
       <Button onClick={props.onClick} style={{ padding: "0.25rem" }}>
-        <img src={returnIcon} alt="deleteIcon" style={{ height: "1.5rem" }} />
+        <img
+          src={returnIcon}
+          id={props.id}
+          alt="deleteIcon"
+          style={{ height: "1.5rem" }}
+        />
       </Button>
     </div>
   );

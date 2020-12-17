@@ -33,6 +33,23 @@ class TaskView extends React.Component {
     }
   }
 
+  async handleDelete(event) {
+    event.stopPropagation();
+
+    try {
+      const response = await axios({
+        method: "delete",
+        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+        url: "/task" + event.target.id,
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+
+    this.componentDidMount();
+  }
+
   render() {
     const tasks = this.state.tasks.map((task) => (
       <TaskNameButton
@@ -40,6 +57,7 @@ class TaskView extends React.Component {
         id={task.id}
         priority={task.priority}
         listId={task.list_id}
+        handleDelete={this.handleDelete.bind(this)}
       />
     ));
 

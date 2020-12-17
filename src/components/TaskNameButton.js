@@ -7,8 +7,9 @@ import axios from "axios";
 class TaskNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#FF83FF" };
+    this.state = { background: "#FF83FF", checked: false };
     this.handleClickEvent = this.handleClickEvent.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
   }
 
   handleClickEvent() {
@@ -34,11 +35,18 @@ class TaskNameButton extends React.Component {
 
   async handleCheck(event) {
     event.stopPropagation();
-    // try {
-    //   const response = await axios({
-
-    //   })
-    // }
+    this.setState({ checked: !this.state.checked });
+    try {
+      const response = await axios({
+        method: "patch",
+        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+        url: "/patchTask" + this.props.id,
+        data: { is_done: this.state.checked },
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
     console.log("checked");
   }
 
@@ -58,7 +66,11 @@ class TaskNameButton extends React.Component {
             <input type="checkbox" onClick={this.handleCheck}></input>
             <div className="taskName">{this.props.name}</div>
             <div className="deleteTask">
-              <DeleteButton onClick={this.handleDelete.bind(this)} />
+              {/* <DeleteButton onClick={this.handleDelete.bind(this)} /> */}
+              <DeleteButton
+                onClick={this.props.handleDelete}
+                id={this.props.id}
+              />
             </div>
           </div>
           <br />
