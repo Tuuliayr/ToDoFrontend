@@ -91,10 +91,10 @@ class CreateTaskView extends React.Component {
     console.log(event.target.value);
   };
 
-  handleListChange = (event) => {
-    this.setState({ listName: event.target.value });
-    console.log(event.target.value);
-  };
+  // handleListChange = (event) => {
+  //   this.setState({ listName: event.target.value });
+  //   console.log(event.target.value);
+  // };
 
   handleSubmit = (event) => {
     axios({
@@ -106,9 +106,8 @@ class CreateTaskView extends React.Component {
         Accept: "application/json",
       },
       data: {
-        name: "Tiskaapa",
-        priority: event.target.value, //201
-        // priority: this.state.priority, //200
+        name: document.getElementById("taskName").value,
+        priority: 1,
         list_id: 2,
       },
     })
@@ -125,6 +124,7 @@ class CreateTaskView extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <p>Task name:</p>
             <input
+              id="taskName"
               type="text"
               placeholder="Task name..."
               style={{ marginBottom: "2rem" }}
