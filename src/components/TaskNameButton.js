@@ -18,6 +18,8 @@ class TaskNameButton extends React.Component {
   }
 
   async handleDelete(event) {
+    event.stopPropagation();
+
     try {
       const response = await axios({
         method: "delete",
@@ -28,15 +30,13 @@ class TaskNameButton extends React.Component {
     } catch (err) {
       console.log(err);
     }
-    event.preventDefault();
-    event.stopPropagation();
   }
 
   render() {
     return (
       <div>
         <Button
-          onClick={this.handleDelete}
+          onClick={this.handleClickEvent}
           style={{
             width: "17rem",
             height: "8rem",
