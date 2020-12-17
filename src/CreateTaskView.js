@@ -79,6 +79,13 @@ class CreateTaskView extends React.Component {
               placeholder="Task name..."
               style={{ marginBottom: "2rem" }}
             />
+            <p>Describtion:</p>
+            <input
+              id="desc"
+              type="text"
+              placeholder="Write describtion..."
+              style={{ marginBottom: "2rem" }}
+            />
             <p>Deadline:</p>
             <Calendar />
             <br />
