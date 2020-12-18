@@ -66,9 +66,9 @@ class TaskNameButton extends React.Component {
           {"Pri: "}
           {this.props.priority}
           <br />
-          {this.props.dueDate}
           <br />
-          {"List: " + this.props.listId}
+          {"Due date: "}
+          {this.props.dueDate}
         </Button>
       </div>
     );
