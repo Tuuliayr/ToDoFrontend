@@ -37,8 +37,9 @@ class CreateTaskView extends React.Component {
 
   handleListChange = (event) => {
     this.setState({ listName: event.target.value });
-    console.log(event.target.value);
-    console.log(event.target);
+    const value = event.target.value;
+    const id = event.target.options[value].id;
+    console.log("id: " + id);
   };
 
   handlePriChange = (event) => {
