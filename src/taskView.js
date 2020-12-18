@@ -70,10 +70,10 @@ class TaskView extends React.Component {
           name={"Tasks in " + this.state.listName}
           return={true}
         />
-        <div className="tasks">{tasks}</div>
         <div className="addTaskButton">
           <AddButton />
         </div>
+        <div className="tasks">{tasks}</div>
       </div>
     );
   }

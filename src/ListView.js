@@ -59,12 +59,12 @@ class ListView extends React.Component {
     return (
       <div>
         <TopBar className="topBarNoReturn" name="Lists" return={false} />
+        <div className="addListButton">
+          <AddListButton />
+        </div>
         <div className="lists">
           <ListNameButton name={"Kaikki"} id={0} canDelete={false} />
           {lists}
-        </div>
-        <div className="addListButton">
-          <AddListButton />
         </div>
       </div>
     );

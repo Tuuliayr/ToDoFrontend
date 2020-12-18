@@ -42,8 +42,9 @@
 /* Align button to middle and having a bit space over it */
 .addListButton,
 .addTaskButton {
-  margin: 1rem 0rem;
-  text-align: center;
+  margin-left: 83%;
+  margin-top: 20rem;
+  position: fixed;
 }
 
 /* Align items in center with name tags starting in the same line as the input box*/
@@ -87,6 +88,11 @@
   .topBar {
     padding-right: 8rem;
   }
+  .addListButton,
+  .addTaskButton {
+    margin-left: 87%;
+    margin-top: 0;
+  }
 }
 
 /* Align listNameButtons in rows with1 item when small screen */
@@ -97,5 +103,10 @@
   }
   .topBar {
     padding-right: 3rem;
+  }
+  .addListButton,
+  .addTaskButton {
+    margin-left: 80%;
+    margin-top: 0;
   }
 }

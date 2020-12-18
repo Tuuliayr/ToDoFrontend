@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import "./Button.css";
 
 const AddListButton = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -27,13 +28,11 @@ const AddListButton = () => {
   return (
     <div>
       <Button
+        className="primary"
         id="Popover1"
         style={{
           fontSize: "3rem",
-          fontWeight: "bold",
-          background: "rgb(187, 153, 255)",
-          borderRadius: "2rem",
-          padding: "0rem 1.5rem",
+          padding: "1.5rem 1rem 0.5rem 1rem",
         }}
       >
         <p>+</p>
