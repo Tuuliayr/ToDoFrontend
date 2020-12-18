@@ -22,16 +22,17 @@ class TaskNameButton extends React.Component {
   async handleCheck(event) {
     // don't let the button under to be clicked.
     event.stopPropagation();
-    this.setState({ checked: !this.state.checked });
     try {
       const response = await axios.patch("/patchTask", {
-        is_done: this.state.checked,
+        is_done: !this.state.checked,
         id: this.props.id,
       });
       console.log(response);
     } catch (err) {
       console.log(err);
     }
+    this.setState({ checked: !this.state.checked });
+
     console.log("checked: " + this.state.checked);
   }
 
