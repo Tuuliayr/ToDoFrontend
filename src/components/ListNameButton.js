@@ -6,7 +6,7 @@ import DeleteButton from "./DeleteButton.js";
 class ListNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#F78CF7" };
+    this.state = { background: "#F78CF7", canDelete: this.props.canDelete };
     this.handleClickEvent = this.handleClickEvent.bind(this);
   }
 
@@ -28,7 +28,12 @@ class ListNameButton extends React.Component {
           }}
         >
           <div className="deleteList">
-            <DeleteButton onClick={this.props.handleDelete} />
+            {this.props.canDelete && (
+              <DeleteButton
+                onClick={this.props.handleDelete}
+                id={this.props.id}
+              />
+            )}
           </div>
           {this.props.name}
         </Button>

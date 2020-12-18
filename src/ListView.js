@@ -21,29 +21,48 @@ class ListView extends React.Component {
   async handleDelete(event) {
     event.stopPropagation();
 
-    try {
-      const response = await axios({
-        method: "delete",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        url: "/list" + event.target.id,
-      });
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
+    console.log(event.target.id);
 
-    this.componentDidMount();
+    // try {
+    //   const response = await axios({
+    //     method: "delete",
+    //     baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+    //     url: "/list" + event.target.id,
+    //   });
+    //   console.log(response);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    // this.componentDidMount();
   }
 
   render() {
-    const lists = this.state.lists.map((list) => (
-      <ListNameButton name={list.name} id={list.id} />
-    ));
+    const lists = this.state.lists.map((list) => {
+      if (list.id === 1) {
+        return (
+          <ListNameButton
+            name={list.name}
+            id={list.id}
+            canDelete={false}
+            handleDelete={this.handleDelete.bind(this)}
+          />
+        );
+      } else {
+        return (
+          <ListNameButton
+            name={list.name}
+            id={list.id}
+            canDelete={true}
+            handleDelete={this.handleDelete.bind(this)}
+          />
+        );
+      }
+    });
     return (
       <div>
         <TopBar className="topBarNoReturn" name="Lists" return={false} />
         <div className="lists">
-          <ListNameButton name={"Kaikki"} id={0} />
+          <ListNameButton name={"Kaikki"} id={0} canDelete={false} />
           {lists}
         </div>
         <div className="addListButton">
