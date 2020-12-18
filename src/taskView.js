@@ -57,6 +57,7 @@ class TaskView extends React.Component {
         id={task.id}
         priority={task.priority}
         listId={task.list_id}
+        isDone={task.is_done}
         handleDelete={this.handleDelete.bind(this)}
       />
     ));

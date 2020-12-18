@@ -7,7 +7,7 @@ import axios from "axios";
 class TaskNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#FF83FF", checked: false };
+    this.state = { background: "#FF83FF", checked: !!this.props.isDone };
     this.handleClickEvent = this.handleClickEvent.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
   }
@@ -18,6 +18,7 @@ class TaskNameButton extends React.Component {
   }
 
   async handleCheck(event) {
+    // don't let the button under to be clicked.
     event.stopPropagation();
     this.setState({ checked: !this.state.checked });
     try {
@@ -31,7 +32,7 @@ class TaskNameButton extends React.Component {
     } catch (err) {
       console.log(err);
     }
-    console.log("checked");
+    console.log("checked: " + this.state.checked);
   }
 
   render() {
@@ -47,7 +48,11 @@ class TaskNameButton extends React.Component {
           }}
         >
           <div className="taskHeadline">
-            <input type="checkbox" onClick={this.handleCheck}></input>
+            <input
+              type="checkbox"
+              onClick={this.handleCheck}
+              defaultChecked={this.state.checked}
+            ></input>
             <div className="taskName">{this.props.name}</div>
             <div className="deleteTask">
               {/* <DeleteButton onClick={this.handleDelete.bind(this)} /> */}
