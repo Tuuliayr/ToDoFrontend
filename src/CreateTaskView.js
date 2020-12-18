@@ -12,7 +12,6 @@ class CreateTaskView extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
     this.state = {
       listName: "",
       priority: "",
@@ -66,6 +65,7 @@ class CreateTaskView extends React.Component {
       data: {
         name: document.getElementById("taskName").value,
         description: document.getElementById("desc").value,
+        dueDate: this.state.dueDate,
         priority: Number(this.state.priority),
         list_id: Number(this.state.listId),
       },
