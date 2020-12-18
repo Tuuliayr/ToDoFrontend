@@ -65,7 +65,7 @@ class CreateTaskView extends React.Component {
       data: {
         name: document.getElementById("taskName").value,
         description: document.getElementById("desc").value,
-        dueDate: this.state.dueDate,
+        due_date: this.state.dueDate,
         priority: Number(this.state.priority),
         list_id: Number(this.state.listId),
       },
