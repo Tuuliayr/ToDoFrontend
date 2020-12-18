@@ -20,12 +20,7 @@ const Calendar = (props) => {
 
   return (
     <div>
-      <Button
-        className="primary"
-        id="PopoverLegacy"
-        type="button"
-        style={{ fontSize: "3rem" }}
-      >
+      <Button className="primary" id="PopoverLegacy" type="button">
         <img src={calendar} alt="calendar icon" />
       </Button>
       <UncontrolledPopover

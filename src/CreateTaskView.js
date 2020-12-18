@@ -5,6 +5,8 @@ import PriDropDown from "./components/PriDropDown.js";
 import Calendar from "./components/CalendarButton.js";
 import TopBar from "./components/TopBar.js";
 import axios from "axios";
+import TimeSelector from "./components/TimeSelector.js";
+import Kalenteri from "./components/Calendar.js";
 
 class CreateTaskView extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class CreateTaskView extends React.Component {
       priority: "",
       list_id: "",
       lists: [],
+      dueDate: "",
     };
   }
 
@@ -45,6 +48,15 @@ class CreateTaskView extends React.Component {
   handlePriChange = (event) => {
     this.setState({ priority: event.target.value });
     console.log(event.target.value);
+  };
+
+  handleDateSubmit = (date) => {
+    console.log("on handle date submit");
+    const dueDate = `${date.getFullYear().toString()}-${
+      date.getMonth() + 1
+    }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    console.log("dueDate: " + dueDate);
+    this.setState({ dueDate: dueDate });
   };
 
   handleSubmit = (event) => {
@@ -88,7 +100,8 @@ class CreateTaskView extends React.Component {
               style={{ marginBottom: "2rem" }}
             />
             <p>Deadline:</p>
-            <Calendar />
+            <Kalenteri handleDateSubmit={this.handleDateSubmit.bind(this)} />
+            {/* <Calendar /> */}
             <br />
             <p>Add to list:</p>
             <ListDropDown handleclick={this.handleListChange.bind(this)} />

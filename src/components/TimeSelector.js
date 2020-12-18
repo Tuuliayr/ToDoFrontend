@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Calendar from "react-calendar";
+// import Calendar from "react-calendar";
 
 import DateFnsUtils from "@date-io/date-fns";
 import fiLocale from "date-fns/locale/fi";
@@ -23,6 +23,7 @@ export default function TimeSelectorComponent() {
     const current = new Date();
     d.setHours(current.getHours(), current.getMinutes(), current.getSeconds());
     changeCalVal(d);
+    console.log(selectedDate);
   }
 
   function handleTimeChange(date) {
@@ -48,8 +49,8 @@ export default function TimeSelectorComponent() {
   });
 
   return (
-    <div className="App">
-      <Calendar
+    <div>
+      {/* <Calendar
         onChange={handleDateChange}
         locale={locale}
         value={selectedDate}
@@ -61,7 +62,7 @@ export default function TimeSelectorComponent() {
         tileContent={(date, view) => {
           return date.date.getDay() === 0 ? " " : null;
         }}
-      />
+      /> */}
 
       <div className="selected-time-view" onChange={handleTimeChange}>
         {selectedDate.toLocaleDateString(locale) +
