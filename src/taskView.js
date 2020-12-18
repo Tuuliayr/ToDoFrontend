@@ -55,6 +55,7 @@ class TaskView extends React.Component {
       <TaskNameButton
         name={task.name}
         id={task.id}
+        dueDate={task.due_date}
         priority={task.priority}
         listId={task.list_id}
         isDone={task.is_done}
