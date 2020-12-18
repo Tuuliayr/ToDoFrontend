@@ -2,11 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ListDropDown from "./components/ListDropDown.js";
 import PriDropDown from "./components/PriDropDown.js";
-import Calendar from "./components/CalendarButton.js";
 import TopBar from "./components/TopBar.js";
 import axios from "axios";
-import TimeSelector from "./components/TimeSelector.js";
-import Kalenteri from "./components/Calendar.js";
+import Calendar from "./components/Calendar.js";
 
 class CreateTaskView extends React.Component {
   constructor(props) {
@@ -96,8 +94,7 @@ class CreateTaskView extends React.Component {
               style={{ marginBottom: "2rem" }}
             />
             <p>Deadline:</p>
-            <Kalenteri handleDateSubmit={this.handleDateSubmit.bind(this)} />
-            {/* <Calendar /> */}
+            <Calendar handleDateSubmit={this.handleDateSubmit.bind(this)} />
             <br />
             <p>Add to list:</p>
             <ListDropDown handleclick={this.handleListChange.bind(this)} />

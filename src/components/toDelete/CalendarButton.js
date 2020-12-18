@@ -9,14 +9,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Button.css";
 import TimeSelectorComponent from "./TimeSelector.js";
 import calendar from "../assets/icon-calendar.png";
-import axios from "axios";
+// import axios from "axios";
 
 const Calendar = (props) => {
-  const [name, setname] = React.useState("");
+  // const [name, setname] = React.useState("");
 
-  const handleChange = (event) => {
-    setname(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setname(event.target.value);
+  // };
 
   return (
     <div>

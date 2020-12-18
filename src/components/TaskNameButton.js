@@ -10,6 +10,8 @@ class TaskNameButton extends React.Component {
     this.state = { background: "#FF83FF", checked: !!this.props.isDone };
     this.handleClickEvent = this.handleClickEvent.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    axios.defaults.baseURL =
+      "https://tamk-4a00ez62-3001-group10.herokuapp.com/api";
   }
 
   handleClickEvent() {
@@ -20,18 +22,17 @@ class TaskNameButton extends React.Component {
   async handleCheck(event) {
     // don't let the button under to be clicked.
     event.stopPropagation();
-    this.setState({ checked: !this.state.checked });
     try {
-      const response = await axios({
-        method: "patch",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        url: "/patchTask" + this.props.id,
-        data: { is_done: this.state.checked },
+      const response = await axios.patch("/patchTask", {
+        is_done: !this.state.checked,
+        id: this.props.id,
       });
       console.log(response);
     } catch (err) {
       console.log(err);
     }
+    this.setState({ checked: !this.state.checked });
+
     console.log("checked: " + this.state.checked);
   }
 
@@ -55,7 +56,6 @@ class TaskNameButton extends React.Component {
             ></input>
             <div className="taskName">{this.props.name}</div>
             <div className="deleteTask">
-              {/* <DeleteButton onClick={this.handleDelete.bind(this)} /> */}
               <DeleteButton
                 onClick={this.props.handleDelete}
                 id={this.props.id}
@@ -69,6 +69,7 @@ class TaskNameButton extends React.Component {
           <br />
           {"Due date: "}
           {this.props.dueDate}
+          {"List: " + this.props.listId}
         </Button>
       </div>
     );
