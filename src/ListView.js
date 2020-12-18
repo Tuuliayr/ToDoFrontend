@@ -21,19 +21,17 @@ class ListView extends React.Component {
   async handleDelete(event) {
     event.stopPropagation();
 
-    console.log(event.target.id);
-
-    // try {
-    //   const response = await axios({
-    //     method: "delete",
-    //     baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-    //     url: "/list" + event.target.id,
-    //   });
-    //   console.log(response);
-    // } catch (err) {
-    //   console.log(err);
-    // }
-    // this.componentDidMount();
+    try {
+      const response = await axios({
+        method: "delete",
+        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
+        url: "/list" + event.target.id,
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+    this.componentDidMount();
   }
 
   render() {
