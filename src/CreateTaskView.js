@@ -16,7 +16,7 @@ class CreateTaskView extends React.Component {
     this.state = {
       listName: "",
       priority: "",
-      list_id: "",
+      listId: "",
       lists: [],
       dueDate: "",
     };
@@ -32,17 +32,12 @@ class CreateTaskView extends React.Component {
     });
   }
 
-  // handleChange = (event) => {
-  //   this.setState({ [event.target.name]: event.target.value });
-  //   console.log(event.target.name);
-  //   console.log(event.target.value);
-  // };
-
   handleListChange = (event) => {
     this.setState({ listName: event.target.value });
     const value = event.target.value;
     const id = event.target.options[value].id;
     console.log("id: " + id);
+    this.setState({ listId: id });
   };
 
   handlePriChange = (event) => {
@@ -70,8 +65,9 @@ class CreateTaskView extends React.Component {
       },
       data: {
         name: document.getElementById("taskName").value,
+        description: document.getElementById("desc").value,
         priority: Number(this.state.priority),
-        list_id: 3,
+        list_id: Number(this.state.listId),
       },
     })
       .then((response) => console.log(response))
@@ -89,14 +85,14 @@ class CreateTaskView extends React.Component {
             <input
               id="taskName"
               type="text"
-              placeholder="Task name..."
+              placeholder="Write task name..."
               style={{ marginBottom: "2rem" }}
             />
             <p>Description:</p>
             <input
               id="desc"
               type="text"
-              placeholder="Write describtion..."
+              placeholder="Write description..."
               style={{ marginBottom: "2rem" }}
             />
             <p>Deadline:</p>
