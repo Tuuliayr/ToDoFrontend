@@ -19,7 +19,10 @@ const Calendar = (props) => {
 
   const locale = "fi-FI";
 
-  const toggle = () => setPopoverOpen(!popoverOpen);
+  const toggle = () => {
+    setPopoverOpen(!popoverOpen);
+    props.handleDateSubmit(selectedDate);
+  };
 
   const handleDateChange = async (date) => {
     const current = new Date();
