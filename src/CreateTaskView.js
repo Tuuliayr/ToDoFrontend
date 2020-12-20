@@ -46,7 +46,6 @@ class CreateTaskView extends React.Component {
 
     const data = await {
       name: document.getElementById("taskName").value,
-      description: document.getElementById("desc").value,
       due_date: this.state.dueDate,
       priority: Number(this.state.priority),
       list_id: Number(this.state.listId),
@@ -69,13 +68,6 @@ class CreateTaskView extends React.Component {
               id="taskName"
               type="text"
               placeholder="Write task name..."
-              style={{ marginBottom: "2rem" }}
-            />
-            <p>Description:</p>
-            <input
-              id="desc"
-              type="text"
-              placeholder="Write description..."
               style={{ marginBottom: "2rem" }}
             />
             <p>Deadline:</p>
