@@ -22,6 +22,7 @@ class TaskView extends React.Component {
     //get tasks of the list
     const response = await axiosMethods.get(path);
     if (response !== undefined) {
+      console.log(response);
       this.setState({ tasks: response.data });
     }
   }
