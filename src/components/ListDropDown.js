@@ -2,8 +2,6 @@ import React from "react";
 import axiosMethods from "../axiosMethods.js";
 
 class ListDropDown extends React.Component {
-  //state = { lists: [] };
-
   constructor(props) {
     super(props);
     this.state = {
