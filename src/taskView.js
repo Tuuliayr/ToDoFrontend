@@ -42,17 +42,29 @@ class TaskView extends React.Component {
   }
 
   render() {
-    const tasks = this.state.tasks.map((task) => (
-      <TaskNameButton
-        name={task.name}
-        id={task.id}
-        dueDate={task.due_date}
-        priority={task.priority}
-        listId={task.list_id}
-        isDone={task.is_done}
-        handleDelete={this.handleDelete.bind(this)}
-      />
-    ));
+    const tasks = this.state.tasks.map((task) => {
+      let dueDate = "";
+      if (task.due_date !== null) {
+        const t = task.due_date.split(/[-T:Z.]/);
+        const jsDate = new Date(
+          Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5])
+        );
+        dueDate = `${jsDate.getDate()}.${
+          jsDate.getMonth() + 1
+        }.${jsDate.getFullYear()} at ${jsDate.getUTCHours()}.${jsDate.getMinutes()}`;
+      }
+      return (
+        <TaskNameButton
+          name={task.name}
+          id={task.id}
+          dueDate={dueDate}
+          priority={task.priority}
+          listId={task.list_id}
+          isDone={task.is_done}
+          handleDelete={this.handleDelete.bind(this)}
+        />
+      );
+    });
 
     return (
       <div>

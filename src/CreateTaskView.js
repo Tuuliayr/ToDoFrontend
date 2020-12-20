@@ -5,6 +5,7 @@ import PriDropDown from "./components/PriDropDown.js";
 import TopBar from "./components/TopBar.js";
 import axiosMethods from "./axiosMethods.js";
 import Calendar from "./components/Calendar.js";
+// import { withRouter } from "react-router-dom";
 
 class CreateTaskView extends React.Component {
   constructor(props) {
@@ -41,6 +42,8 @@ class CreateTaskView extends React.Component {
   };
 
   handleSubmit = async (event) => {
+    event.preventDefault();
+
     const data = await {
       name: document.getElementById("taskName").value,
       description: document.getElementById("desc").value,
@@ -50,7 +53,9 @@ class CreateTaskView extends React.Component {
     };
     await axiosMethods.post("task", data);
 
-    event.preventDefault();
+    // const path = "/list" + 0 + "Kaikki";
+    // this.props.history.push(path);
+    // this.props.history.goBack();
   };
 
   render() {
