@@ -7,7 +7,10 @@ import axiosMethods from "../axiosMethods.js";
 class TaskNameButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { background: "#FF83FF", checked: !!this.props.isDone };
+    this.state = {
+      background: "#FF83FF",
+      checked: !!this.props.isDone,
+    };
     this.handleClickEvent = this.handleClickEvent.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
   }
@@ -60,11 +63,9 @@ class TaskNameButton extends React.Component {
           {"Pri: "}
           {this.props.priority}
           <br />
-          {"Due date: "}
+          {!!this.props.dueDate && "Due date: "}
           <br />
           {this.props.dueDate}
-          <br />
-          {"List: " + this.props.listId}
         </Button>
       </div>
     );
