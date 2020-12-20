@@ -55,6 +55,7 @@ class ListView extends React.Component {
         </div>
         <div className="lists">
           <ListNameButton name={"All Tasks"} id={0} canDelete={false} />
+          <ListNameButton name={"Today"} id={1} canDelete={false} />
           {lists}
         </div>
       </div>

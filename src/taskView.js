@@ -18,6 +18,14 @@ class TaskView extends React.Component {
     let path = "/";
     if (this.state.id > 0) {
       path = "/list" + this.state.id;
+    } else if (this.state.id === 1) {
+      let today = new Date();
+      today = `${today.getFullYear().toString()}-${
+        today.getMonth() + 1
+      }-${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+      if (this.props.dueDate === today) {
+        path = "/list" + this.state.id;
+      }
     }
     //get tasks of the list
     const response = await axiosMethods.get(path);
