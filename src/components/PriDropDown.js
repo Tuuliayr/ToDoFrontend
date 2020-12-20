@@ -5,6 +5,7 @@ class PriDropDown extends React.Component {
     super(props);
     this.state = {
       value: "Select priority",
+      priorities: [{ priority: "1" }, { priority: "2" }, { priority: "3" }],
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -14,14 +15,15 @@ class PriDropDown extends React.Component {
   }
 
   render() {
+    const priorities = this.state.priorities.map((list) => (
+      <option name={list.priority}>{list.priority}</option>
+    ));
     return (
       <form>
         <label>
-          <select value={this.state.value} onChange={this.props.handleclick}>
-            <option value="0">No priority</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+          <select onChange={this.props.handleclick}>
+            <option>No priority</option>
+            {priorities}
           </select>
         </label>
       </form>

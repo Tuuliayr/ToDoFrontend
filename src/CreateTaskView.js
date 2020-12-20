@@ -88,8 +88,6 @@ class CreateTaskView extends React.Component {
             <PriDropDown handleclick={this.handlePriChange.bind(this)} />
             <br />
             <button type="submit">Create task</button>
-            {/* <input type="text" value={this.state.priority} /> */}
-            {/* <button onClick={this.handleChange.bind(this)}>Add task</button> */}
           </form>
         </div>
       </div>

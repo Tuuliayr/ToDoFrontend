@@ -43,7 +43,7 @@ class TaskNameButton extends React.Component {
               onClick={this.handleCheck}
               defaultChecked={this.state.checked}
             ></input>
-            <div className="taskName" style={{ "font-size": "1.3rem" }}>
+            <div className="taskName" style={{ "font-size": "1.25rem" }}>
               {this.props.name}
             </div>
             <div className="deleteTask">
