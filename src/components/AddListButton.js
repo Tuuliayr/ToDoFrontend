@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import axiosMethods from "../axiosMethods.js";
 import "./Button.css";
 
@@ -26,7 +26,7 @@ const AddListButton = (props) => {
         id="Popover1"
         style={{
           fontSize: "3rem",
-          padding: "1.5rem 1rem 0.5rem 1rem",
+          padding: "1.5rem 1.2rem 0.5rem 1.2rem",
         }}
       >
         <p>+</p>
