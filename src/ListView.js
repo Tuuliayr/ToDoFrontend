@@ -54,7 +54,7 @@ class ListView extends React.Component {
           <AddListButton handleNewList={this.handleNewList.bind(this)} />
         </div>
         <div className="lists">
-          <ListNameButton name={"Kaikki"} id={0} canDelete={false} />
+          <ListNameButton name={"All Tasks"} id={0} canDelete={false} />
           {lists}
         </div>
       </div>

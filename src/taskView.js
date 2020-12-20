@@ -50,7 +50,7 @@ class TaskView extends React.Component {
       <div>
         <TopBar
           className="topBar"
-          name={"Tasks in " + this.state.listName}
+          name={"Tasks in " + this.state.listName.split("-").join(" ")}
           return={true}
         />
         <div className="addTaskButton">
