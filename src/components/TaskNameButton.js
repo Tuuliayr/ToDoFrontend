@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "./Button.js";
-import { withRouter } from "react-router-dom";
 import DeleteButton from "./DeleteButton.js";
 import axiosMethods from "../axiosMethods.js";
 
@@ -11,13 +10,7 @@ class TaskNameButton extends React.Component {
       background: "#FF83FF",
       checked: !!this.props.isDone,
     };
-    this.handleClickEvent = this.handleClickEvent.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-  }
-
-  handleClickEvent() {
-    const path = "/task" + this.props.id;
-    this.props.history.push(path);
   }
 
   async handleCheck(event) {
@@ -37,7 +30,6 @@ class TaskNameButton extends React.Component {
     return (
       <div>
         <Button
-          onClick={this.handleClickEvent}
           style={{
             width: "17rem",
             height: "8rem",
@@ -51,7 +43,9 @@ class TaskNameButton extends React.Component {
               onClick={this.handleCheck}
               defaultChecked={this.state.checked}
             ></input>
-            <div className="taskName">{this.props.name}</div>
+            <div className="taskName" style={{ "font-size": "1.3rem" }}>
+              {this.props.name}
+            </div>
             <div className="deleteTask">
               <DeleteButton
                 onClick={this.props.handleDelete}
@@ -72,4 +66,4 @@ class TaskNameButton extends React.Component {
   }
 }
 
-export default withRouter(TaskNameButton);
+export default TaskNameButton;
