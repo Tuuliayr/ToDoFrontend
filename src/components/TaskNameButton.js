@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button.js";
 import { withRouter } from "react-router-dom";
 import DeleteButton from "./DeleteButton.js";
-import axios from "axios";
+import axiosMethods from "../axiosMethods.js";
 
 class TaskNameButton extends React.Component {
   constructor(props) {
@@ -10,8 +10,6 @@ class TaskNameButton extends React.Component {
     this.state = { background: "#FF83FF", checked: !!this.props.isDone };
     this.handleClickEvent = this.handleClickEvent.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    axios.defaults.baseURL =
-      "https://tamk-4a00ez62-3001-group10.herokuapp.com/api";
   }
 
   handleClickEvent() {
@@ -22,18 +20,14 @@ class TaskNameButton extends React.Component {
   async handleCheck(event) {
     // don't let the button under to be clicked.
     event.stopPropagation();
-    try {
-      const response = await axios.patch("/patchTask", {
-        is_done: !this.state.checked,
-        id: this.props.id,
-      });
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
+    const response = await axiosMethods.patch("/patchTask", {
+      is_done: !this.state.checked,
+      id: this.props.id,
+    });
+
     this.setState({ checked: !this.state.checked });
 
-    console.log("checked: " + this.state.checked);
+    console.log(response);
   }
 
   render() {

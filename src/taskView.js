@@ -1,6 +1,6 @@
 import React from "react";
 import AddButton from "./components/AddButton.js";
-import axios from "axios";
+import axiosMethods from "./axiosMethods.js";
 import TaskNameButton from "./components/TaskNameButton.js";
 import TopBar from "./components/TopBar.js";
 
@@ -20,32 +20,15 @@ class TaskView extends React.Component {
       path = "/list" + this.state.id;
     }
     //get tasks of the list
-    try {
-      axios({
-        method: "get",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        url: path,
-      }).then((response) => {
-        this.setState({ tasks: response.data });
-      });
-    } catch (err) {
-      console.log(err);
+    const response = await axiosMethods.get(path);
+    if (response !== undefined) {
+      this.setState({ tasks: response.data });
     }
   }
 
   async handleDelete(event) {
     event.stopPropagation();
-
-    try {
-      const response = await axios({
-        method: "delete",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        url: "/task" + event.target.id,
-      });
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
+    await axiosMethods.delete("/task" + event.target.id);
 
     this.componentDidMount();
   }

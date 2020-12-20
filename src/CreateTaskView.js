@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import ListDropDown from "./components/ListDropDown.js";
 import PriDropDown from "./components/PriDropDown.js";
 import TopBar from "./components/TopBar.js";
-import axios from "axios";
+import axiosMethods from "./axiosMethods.js";
 import Calendar from "./components/Calendar.js";
 
 class CreateTaskView extends React.Component {
@@ -14,19 +14,8 @@ class CreateTaskView extends React.Component {
       listName: "",
       priority: "",
       listId: "",
-      lists: [],
       dueDate: "",
     };
-  }
-
-  async componentDidMount() {
-    axios({
-      method: "get",
-      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api/",
-      url: "/lists",
-    }).then((response) => {
-      this.setState({ lists: response.data });
-    });
   }
 
   handleListChange = (event) => {
@@ -51,25 +40,16 @@ class CreateTaskView extends React.Component {
     this.setState({ dueDate: dueDate });
   };
 
-  handleSubmit = (event) => {
-    axios({
-      method: "post",
-      url: "/task",
-      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      data: {
-        name: document.getElementById("taskName").value,
-        description: document.getElementById("desc").value,
-        due_date: this.state.dueDate,
-        priority: Number(this.state.priority),
-        list_id: Number(this.state.listId),
-      },
-    })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+  handleSubmit = async (event) => {
+    const data = await {
+      name: document.getElementById("taskName").value,
+      description: document.getElementById("desc").value,
+      due_date: this.state.dueDate,
+      priority: Number(this.state.priority),
+      list_id: Number(this.state.listId),
+    };
+    await axiosMethods.post("task", data);
+
     event.preventDefault();
   };
 

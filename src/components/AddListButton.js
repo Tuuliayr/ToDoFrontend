@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import axiosMethods from "../axiosMethods.js";
 import "./Button.css";
 
-const AddListButton = () => {
+const AddListButton = (props) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [name, setName] = useState("");
 
   const submitList = async (event) => {
-    try {
-      const response = await axios({
-        method: "post",
-        url: "/list",
-        baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api",
-        data: { name: name },
-      });
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
     event.preventDefault();
+
+    await axiosMethods.post("list", { name: name });
+    toggle();
+    setName("");
+    props.handleNewList();
   };
 
   const toggle = () => setPopoverOpen(!popoverOpen);

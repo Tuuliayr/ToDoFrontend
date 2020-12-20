@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosMethods from "../axiosMethods.js";
 
 class ListDropDown extends React.Component {
   //state = { lists: [] };
@@ -9,22 +9,12 @@ class ListDropDown extends React.Component {
     this.state = {
       lists: [],
     };
-    // this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
-    axios({
-      method: "get",
-      baseURL: "https://tamk-4a00ez62-3001-group10.herokuapp.com/api/",
-      url: "/lists",
-    }).then((response) => {
-      this.setState({ lists: response.data });
-    });
+    const response = await axiosMethods.get("/lists");
+    this.setState({ lists: response.data });
   }
-
-  // handleChange(event) {
-  //   this.setState({ name: event.target.value });
-  // }
 
   render() {
     const lists = this.state.lists.map((list) => (
