@@ -14,7 +14,7 @@ class CreateTaskView extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       listName: "name",
-      priority: 0,
+      priority: 4,
       listId: 1,
       dueDate: "",
     };
