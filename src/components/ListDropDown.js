@@ -11,6 +11,7 @@ class ListDropDown extends React.Component {
 
   async componentDidMount() {
     const response = await axiosMethods.get("/lists");
+    response.data.splice(0, 1);
     this.setState({ lists: response.data });
   }
 
