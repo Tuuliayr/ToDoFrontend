@@ -42,7 +42,9 @@ class TaskView extends React.Component {
   render() {
     const tasks = this.state.tasks.map((task) => {
       let dueDate = "";
-      if (task.due_date !== null) {
+      if (task.due_date === "0000-00-00 00:00:00") {
+        dueDate = "";
+      } else if (task.due_date !== null) {
         const t = task.due_date.split(/[-T:Z.]/);
         const jsDate = new Date(
           Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5])
