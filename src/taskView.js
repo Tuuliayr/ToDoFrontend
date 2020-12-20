@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import AddButton from "./components/AddButton.js";
 import axiosMethods from "./axiosMethods.js";
 import TaskNameButton from "./components/TaskNameButton.js";
