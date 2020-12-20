@@ -1,6 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://tamk-4a00ez62-3001-group10.herokuapp.com/api";
+// axios.defaults.baseURL = "http://localhost:8080/api";
 
 class axiosMethods {
   static async submitList(name) {

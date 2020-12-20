@@ -19,7 +19,7 @@ class TaskView extends React.Component {
     if (this.state.id > 1) {
       path = "/list" + this.state.id;
       //get tasks of the list
-    } else if (this.state.id === 1) {
+    } else if (this.state.id === "1") {
       let today = new Date();
       today = `${today.getFullYear().toString()}-${
         today.getMonth() + 1
@@ -28,7 +28,6 @@ class TaskView extends React.Component {
     }
     const response = await axiosMethods.get(path);
     if (response !== undefined) {
-      console.log(response);
       this.setState({ tasks: response.data });
     }
   }
