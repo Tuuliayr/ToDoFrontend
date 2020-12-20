@@ -43,6 +43,7 @@ class TaskView extends React.Component {
   render() {
     const tasks = this.state.tasks.map((task) => {
       let dueDate = "";
+      let showPriority = true;
       if (task.due_date === "0000-00-00 00:00:00") {
         dueDate = "";
       } else if (task.due_date !== null) {
@@ -54,6 +55,9 @@ class TaskView extends React.Component {
           jsDate.getMonth() + 1
         }.${jsDate.getFullYear()} at ${jsDate.getUTCHours()}.${jsDate.getMinutes()}`;
       }
+      if (task.priority === 4) {
+        showPriority = false;
+      }
       return (
         <TaskNameButton
           name={task.name}
@@ -62,6 +66,7 @@ class TaskView extends React.Component {
           priority={task.priority}
           listId={task.list_id}
           isDone={task.is_done}
+          showPri={showPriority}
           handleDelete={this.handleDelete.bind(this)}
         />
       );
