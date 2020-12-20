@@ -21,7 +21,7 @@ class PriDropDown extends React.Component {
     return (
       <form>
         <label>
-          <select onChange={this.props.handleclick}>
+          <select onChange={this.props.handleChange}>
             <option>No priority</option>
             {priorities}
           </select>

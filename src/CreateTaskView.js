@@ -5,6 +5,7 @@ import PriDropDown from "./components/PriDropDown.js";
 import TopBar from "./components/TopBar.js";
 import axiosMethods from "./axiosMethods.js";
 import Calendar from "./components/Calendar.js";
+import Button from "./components/Button.js";
 // import { withRouter } from "react-router-dom";
 
 class CreateTaskView extends React.Component {
@@ -12,7 +13,7 @@ class CreateTaskView extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      listName: "",
+      listName: "name",
       priority: 0,
       listId: 1,
       dueDate: "",
@@ -37,8 +38,11 @@ class CreateTaskView extends React.Component {
     const dueDate = `${date.getFullYear().toString()}-${
       date.getMonth() + 1
     }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-    console.log("dueDate: " + dueDate);
     this.setState({ dueDate: dueDate });
+  };
+
+  changeView = () => {
+    this.props.history.goBack();
   };
 
   handleSubmit = async (event) => {
@@ -74,12 +78,13 @@ class CreateTaskView extends React.Component {
             <Calendar handleDateSubmit={this.handleDateSubmit.bind(this)} />
             <br />
             <p>Add to list:</p>
-            <ListDropDown handleclick={this.handleListChange.bind(this)} />
+            <ListDropDown handleChange={this.handleListChange.bind(this)} />
             <br />
             <p>Choose priority:</p>
-            <PriDropDown handleclick={this.handlePriChange.bind(this)} />
+            <PriDropDown handleChange={this.handlePriChange.bind(this)} />
             <br />
             <button type="submit">Create task</button>
+            <Button onClick={this.changeView}>Go Back</Button>
           </form>
         </div>
       </div>
