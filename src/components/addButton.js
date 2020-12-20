@@ -16,7 +16,7 @@ class AddButton extends React.Component {
       <div style={{ display: "inline-block", marginRight: "50px" }}>
         <Button
           onClick={this.handleClickEvent}
-          style={{ fontSize: "3rem", padding: "1.25rem 1.125rem" }}
+          style={{ fontSize: "3rem", padding: "1.5rem 1.2rem" }}
         >
           +
         </Button>
