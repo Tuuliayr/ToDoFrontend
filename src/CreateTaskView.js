@@ -35,9 +35,9 @@ class CreateTaskView extends React.Component {
 
   handleDateSubmit = (date) => {
     console.log("on handle date submit");
-    const dueDate = `${date.getFullYear().toString()}-${
-      date.getMonth() + 1
-    }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    const dueDate = `${date.getFullYear().toString()}-${date.getMonth() + 1}-${
+      date.getDate() - 1
+    } ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     this.setState({ dueDate: dueDate });
   };
 
