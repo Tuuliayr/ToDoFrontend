@@ -41,21 +41,28 @@ class CreateTaskView extends React.Component {
     this.setState({ dueDate: dueDate });
   };
 
-  changeView = () => {
-    this.props.history.goBack();
-  };
-
-  handleSubmit = async (event) => {
-    event.preventDefault();
-
+  changeView = async () => {
     const data = await {
       name: document.getElementById("taskName").value,
       due_date: this.state.dueDate,
       priority: Number(this.state.priority),
       list_id: Number(this.state.listId),
     };
+
     await axiosMethods.post("task", data);
 
+    this.props.history.goBack();
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    // const data = await {
+    //   name: document.getElementById("taskName").value,
+    //   due_date: this.state.dueDate,
+    //   priority: Number(this.state.priority),
+    //   list_id: Number(this.state.listId),
+    // };
+    // await axiosMethods.post("task", data);
     // const path = "/list" + 0 + "Kaikki";
     // this.props.history.push(path);
     // this.props.history.goBack();
@@ -83,8 +90,7 @@ class CreateTaskView extends React.Component {
             <p>Choose priority:</p>
             <PriDropDown handleChange={this.handlePriChange.bind(this)} />
             <br />
-            <button type="submit">Create task</button>
-            <Button onClick={this.changeView}>Go Back</Button>
+            <Button onClick={this.changeView}>Create Task</Button>
           </form>
         </div>
       </div>
